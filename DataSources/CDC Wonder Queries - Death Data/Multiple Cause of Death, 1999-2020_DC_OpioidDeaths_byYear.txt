@@ -1,0 +1,88 @@
+"Notes"	"Year"	"Year Code"	Deaths	Population	Crude Rate	Crude Rate Lower 95% Confidence Interval	Crude Rate Upper 95% Confidence Interval	Crude Rate Standard Error	% of Total Deaths
+	"1999"	"1999"	12	360041	Unreliable	1.7	5.8	1.0	1.1%
+	"2000"	"2000"	14	362879	Unreliable	2.1	6.5	1.0	1.3%
+	"2001"	"2001"	14	370586	Unreliable	2.1	6.3	1.0	1.3%
+	"2002"	"2002"	15	377135	Unreliable	2.2	6.6	1.0	1.4%
+	"2003"	"2003"	19	382859	Unreliable	3.0	7.7	1.1	1.7%
+	"2004"	"2004"	24	387894	6.2	4.0	9.2	1.3	2.2%
+	"2005"	"2005"	28	392890	7.1	4.7	10.3	1.3	2.5%
+	"2006"	"2006"	28	398205	7.0	4.7	10.2	1.3	2.5%
+	"2007"	"2007"	34	403235	8.4	5.8	11.8	1.4	3.1%
+	"2008"	"2008"	34	408178	8.3	5.8	11.6	1.4	3.1%
+	"2009"	"2009"	35	413862	8.5	5.9	11.8	1.4	3.2%
+	"2010"	"2010"	46	416283	11.1	8.1	14.7	1.6	4.2%
+	"2011"	"2011"	60	424073	14.1	10.8	18.2	1.8	5.4%
+	"2012"	"2012"	55	430893	12.8	9.6	16.6	1.7	5.0%
+	"2013"	"2013"	70	436716	16.0	12.5	20.3	1.9	6.4%
+	"2014"	"2014"	62	442815	14.0	10.7	17.9	1.8	5.6%
+	"2015"	"2015"	60	449432	13.4	10.2	17.2	1.7	5.4%
+	"2016"	"2016"	90	456761	19.7	15.8	24.2	2.1	8.2%
+	"2017"	"2017"	88	462328	19.0	15.3	23.5	2.0	8.0%
+	"2018"	"2018"	85	468595	18.1	14.5	22.4	2.0	7.7%
+	"2019"	"2019"	106	473436	22.4	18.1	26.7	2.2	9.6%
+	"2020 "	"2020"	123	479660	25.6	21.1	30.2	2.3	11.2%
+---
+Dataset: Multiple Cause of Death, 1999-2020
+Query Parameters:
+MCD - ICD-10 Codes: T40.0 (Opium); T40.1 (Heroin); T40.2 (Other opioids); T40.3 (Methadone); T40.4 (Other synthetic narcotics);
+T40.6 (Other and unspecified narcotics)
+Single-Year Ages: 12 years; 13 years; 14 years; 15 years; 16 years; 17 years; 18 years; 19 years; 20 years; 21 years; 22 years;
+23 years; 24 years; 25 years; 26 years; 27 years; 28 years; 29 years; 30 years; 31 years; 32 years; 33 years; 34 years; 35
+years; 36 years; 37 years; 38 years; 39 years; 40 years; 41 years; 42 years; 43 years; 44 years; 45 years; 46 years; 47 years;
+48 years; 49 years; 50 years; 51 years; 52 years; 53 years; 54 years; 55 years; 56 years; 57 years; 58 years; 59 years; 60
+years; 61 years; 62 years; 63 years; 64 years; 65 years; 66 years; 67 years; 68 years; 69 years; 70 years; 71 years; 72 years;
+73 years; 74 years; 75 years; 76 years; 77 years; 78 years; 79 years; 80 years; 81 years; 82 years; 83 years; 84 years; 85
+years; 86 years; 87 years; 88 years; 89 years; 90 years; 91 years; 92 years; 93 years; 94 years; 95 years; 96 years; 97 years;
+98 years; 99 years; 100+ years
+States: Dane County, WI (55025)
+UCD - Drug/Alcohol Induced Causes: Drug-induced causes
+Group By: Year
+Show Totals: True
+Show Zero Values: True
+Show Suppressed: True
+Calculate Rates Per: 100,000
+Rate Options: Default intercensal populations for years 2001-2009 (except Infant Age Groups)
+---
+Help: See http://wonder.cdc.gov/wonder/help/mcd.html for more information.
+---
+Query Date: Feb 14, 2022 5:03:11 PM
+---
+Suggested Citation: Centers for Disease Control and Prevention, National Center for Health Statistics. Multiple Cause of Death
+1999-2020 on CDC WONDER Online Database, released in 2021. Data are from the Multiple Cause of Death Files, 1999-2020, as
+compiled from data provided by the 57 vital statistics jurisdictions through the Vital Statistics Cooperative Program. Accessed
+at http://wonder.cdc.gov/mcd-icd10.html on Feb 14, 2022 5:03:11 PM
+---
+Caveats:
+1. As of April 3, 2017, the underlying cause of death has been revised for 125 deaths in 2014. More information:
+http://wonder.cdc.gov/wonder/help/mcd.html#2014-Revision.
+2. Death rates are flagged as Unreliable when the rate is calculated with a numerator of 20 or less. More information:
+http://wonder.cdc.gov/wonder/help/mcd.html#Unreliable.
+3. Deaths of persons with Age "Not Stated" are included in "All" counts and rates, but are not distributed among age groups,
+so are not included in age-specific counts, age-specific rates or in any age-adjusted rates. More information:
+http://wonder.cdc.gov/wonder/help/mcd.html#Not Stated.
+4. The method used to calculate 95% confidence intervals is documented here: More information:
+http://wonder.cdc.gov/wonder/help/mcd.html#Confidence-Intervals.
+5. The method used to calculate standard errors is documented here: More information:
+http://wonder.cdc.gov/wonder/help/mcd.html#Standard-Errors.
+6. The population figures for year 2020 are bridged-race estimates of the July 1 resident population, from the Vintage 2020
+postcensal series released by NCHS on September 22, 2021. The population figures for year 2019 are bridged-race estimates of the
+July 1 resident population, from the Vintage 2019 postcensal series released by NCHS on July 9, 2020. The population figures for
+year 2018 are bridged-race estimates of the July 1 resident population, from the Vintage 2018 postcensal series released by NCHS
+on June 25, 2019. The population figures for year 2017 are bridged-race estimates of the July 1 resident population, from the
+Vintage 2017 postcensal series released by NCHS on June 27, 2018. The population figures for year 2016 are bridged-race
+estimates of the July 1 resident population, from the Vintage 2016 postcensal series released by NCHS on June 26, 2017. The
+population figures for year 2015 are bridged-race estimates of the July 1 resident population, from the Vintage 2015 postcensal
+series released by NCHS on June 28, 2016. The population figures for year 2014 are bridged-race estimates of the July 1 resident
+population, from the Vintage 2014 postcensal series released by NCHS on June 30, 2015. The population figures for year 2013 are
+bridged-race estimates of the July 1 resident population, from the Vintage 2013 postcensal series released by NCHS on June 26,
+2014. The population figures for year 2012 are bridged-race estimates of the July 1 resident population, from the Vintage 2012
+postcensal series released by NCHS on June 13, 2013. Population figures for 2011 are bridged-race estimates of the July 1
+resident population, from the county-level postcensal Vintage 2011 series released by NCHS on July 18, 2012. Population figures
+for 2010 are April 1 Census counts. The population figures for years 2001 - 2009, are bridged-race estimates of the July 1
+resident population, from the revised intercensal county-level 2000 - 2009 series released by NCHS on October 26, 2012.
+Population figures for 2000 are April 1 Census counts. Population figures for 1999 are from the 1990-1999 intercensal series of
+July 1 estimates. Population figures for Infant Age Groups are the number of live births. <br/><b>Note:</b> Rates and population
+figures for years 2001 - 2009 differ slightly from previously published reports, due to use of the population estimates which
+were available at the time of release.
+7. Changes to cause of death classification affect reporting trends. More information:
+http://wonder.cdc.gov/wonder/help/mcd.html#ICD-10 Changes.

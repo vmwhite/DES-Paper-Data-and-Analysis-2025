@@ -1,0 +1,2 @@
+Incidence Deahts and Prevalence CSV files is direct copy from larger file. Made into CSV format for faster loading into python
+see, https://towardsdatascience.com/read-excel-files-with-python-1000x-faster-407d07ad0ed8 for more details on pyhton data file loading speeds

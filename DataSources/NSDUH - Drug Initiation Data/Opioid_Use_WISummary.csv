@@ -1,0 +1,43 @@
+outcome,age_group,year_pair,geography,estimate,ci_lower,ci_upper
+Pain Reliever Use Disorder in the Past Year,12 or Older,2015-16,United States,0.007058,0.006475,0.007694
+Pain Reliever Use Disorder in the Past Year,12 or Older,2016-17,United States,0.006335,0.005797,0.006922
+Pain Reliever Use Disorder in the Past Year,12 or Older,2017-18,United States,0.006178,0.005594,0.006821
+Pain Reliever Use Disorder in the Past Year,12 or Older,2018-19,United States,0.005574,0.005005,0.006208
+Pain Reliever Misuse in the Past Year,12 or Older,2015-16,United States,0.044642,0.043112,0.046224
+Pain Reliever Misuse in the Past Year,12 or Older,2016-17,United States,0.041722,0.040293,0.043198
+Pain Reliever Misuse in the Past Year,12 or Older,2017-18,United States,0.038518,0.037183,0.039898
+Pain Reliever Misuse in the Past Year,12 or Older,2018-19,United States,0.035835,0.034384,0.037345
+Heroin Use in the Past Year,12 or Older,2013-14,United States,0.003023,0.002663,0.003432
+Heroin Use in the Past Year,12 or Older,2014-15,United States,0.00327,0.002897,0.003691
+Heroin Use in the Past Year,12 or Older,2015-16,United States,0.003307,0.002914,0.003753
+Heroin Use in the Past Year,12 or Older,2016-17,United States,0.003386,0.002997,0.003825
+Heroin Use in the Past Year,12 or Older,2017-18,United States,0.003103,0.002682,0.003589
+Heroin Use in the Past Year,12 or Older,2018-19,United States,0.002828,0.002378,0.003363
+Nonmedical Use of Pain Relievers in the Past Year,12 or Older,2002-03,United States,0.047929,0.046138,0.049786
+Nonmedical Use of Pain Relievers in the Past Year,12 or Older,2003-04,United States,0.047943,0.046229,0.049717
+Nonmedical Use of Pain Relievers in the Past Year,12 or Older,2004-05,United States,0.047693,0.045992,0.049454
+Nonmedical Use of Pain Relievers in the Past Year,12 or Older,2005-06,United States,0.050006,0.048252,0.05182
+Nonmedical Use of Pain Relievers in the Past Year,12 or Older,2006-07,United States,0.050959,0.049183,0.052796
+Nonmedical Use of Pain Relievers in the Past Year,12 or Older,2007-08,United States,0.049097,0.047432,0.050816
+Nonmedical Use of Pain Relievers in the Past Year,12 or Older,2008-09,United States,0.048574,0.046913,0.05029
+Nonmedical Use of Pain Relievers in the Past Year,12 or Older,2009-10,United States,0.048852,0.047035,0.050736
+Nonmedical Use of Pain Relievers in the Past Year,12 or Older,2010-11,United States,0.045743,0.044056,0.047491
+Nonmedical Use of Pain Relievers in the Past Year,12 or Older,2011-12,United States,0.045653,0.04388,0.047493
+Nonmedical Use of Pain Relievers in the Past Year,12 or Older,2012-13,United States,0.045117,0.043265,0.047044
+Nonmedical Use of Pain Relievers in the Past Year,12 or Older,2013-14,United States,0.040604,0.039049,0.042218
+Illicit Drug Use Disorder in the Past Year (through 2014),12 or Older,2015-16,United States,0.028146,0.027009,0.02933
+Illicit Drug Use Disorder in the Past Year (through 2014),12 or Older,2016-17,United States,0.027562,0.026497,0.028669
+Illicit Drug Use Disorder in the Past Year (through 2014),12 or Older,2017-18,United States,0.02865,0.027475,0.029873
+Illicit Drug Use Disorder in the Past Year (through 2014),12 or Older,2018-19,United States,0.029886,0.028601,0.031228
+Illicit Drug Dependence in the Past Year,12 or Older,2002-03,United States,0.019055,0.018053,0.020112
+Illicit Drug Dependence in the Past Year,12 or Older,2003-04,United States,0.019294,0.018351,0.020284
+Illicit Drug Dependence in the Past Year,12 or Older,2004-05,United States,0.019785,0.018833,0.020785
+Illicit Drug Dependence in the Past Year,12 or Older,2005-06,United States,0.019537,0.018569,0.020556
+Illicit Drug Dependence in the Past Year,12 or Older,2006-07,United States,0.01931,0.018282,0.020394
+Illicit Drug Dependence in the Past Year,12 or Older,2007-08,United States,0.01924,0.018225,0.020311
+Illicit Drug Dependence in the Past Year,12 or Older,2008-09,United States,0.01947,0.018458,0.020537
+Illicit Drug Dependence in the Past Year,12 or Older,2009-10,United States,0.019263,0.018234,0.020349
+Illicit Drug Dependence in the Past Year,12 or Older,2010-11,United States,0.018414,0.017392,0.019495
+Illicit Drug Dependence in the Past Year,12 or Older,2011-12,United States,0.018587,0.017544,0.019691
+Illicit Drug Dependence in the Past Year,12 or Older,2012-13,United States,0.019089,0.018008,0.020233
+Illicit Drug Dependence in the Past Year,12 or Older,2013-14,United States,0.018781,0.017765,0.019855
