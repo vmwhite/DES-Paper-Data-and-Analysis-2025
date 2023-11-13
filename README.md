@@ -1,8 +1,8 @@
 # DES-Paper-Data-and-Analysis-2023
 
-This repository is the supportive code and data for the paper:
+This repository is the supportive code and data for the paper: https://arxiv.org/abs/2311.05076 
 
-[1] V. M. White and L. A. Albert, “Diversion and treatment policies for opioid use disorder: a discrete event simulation approach,” Manuscript in preparation. 
+[1] V. M. White and L. A. Albert. (2023). “Evaluating diversion and treatment policies for opioid use disorder,” Pre-print. 
 
 ## The "DataSources" folder
 This folder obtains the collected raw data used to estimate the input parameters for the Dane County case study. 
@@ -18,6 +18,4 @@ is Python code for the simulation. When you run the file, you enter the followin
 - The number of runs you wish to conduct
 - The length in years you want the simulation to run (with a default of a 5 year warm-up period)
 - the line in the "AllScenarioMatrix.csv"
-
-For example:
 
