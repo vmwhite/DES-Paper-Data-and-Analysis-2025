@@ -36,5 +36,11 @@ This folder contains various Python files used to process the outputs of "Simula
 
 ## The "Appendix_Items" folder
 This folder contains various Python files used to conduct supplemental analysis reported in the Appendices in [1]. Specifically: 
-
+- The "Replication_Analysis/EstimatingNumberOfScenatios.py" file was used in supporting Appendix B for [1]
+- The "Sensitivity_Analysis/GenerateSensitivityMatrix.py" file was used to sample Sobol Sequences for Appendix C in [1]
+- The "Sensitivity_Analysis/Simulation_DC_OpioidPolicing_Sensitivity.py" file calls "Sensitivity_Analysis/GenerateSensitivityMatrix.py" and conducts the sensitivity analysis used in Appendix C for [1]
+- The "Sensitivity_Analysis/Combine_Sens_Outputs.py" file compiles the raw sensitivity analysis outputs from "Sensitivity_Analysis/Simulation_DC_OpioidPolicing_Sensitivity.py" to .csv files
+- The "Sensitivity_Analysis/Base_TotalYearlyEvents.py.py" file compiles the raw base model outputs from "Simulation_DC_OpioidPolicing_MARI_ED_and_CM.py" to .csv files
+- The "Sensitivity_Analysis/RegressionAnalysis.py" file conducts the normality, scatterplots, PRCC, and OLS analyses for Appendix C in [1]
+- The "Sensitivity_Analysis/Sens_Tables.py" file is supportive Python code called by "Sensitivity_Analysis/RegressionAnalysis.py" and contains the code to reformat data frames to latex for tables A2 and A3.
 
