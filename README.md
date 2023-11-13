@@ -15,7 +15,8 @@ This file contains the list of scenarios tested. Where
 
 ## "Simulation_DC_OpioidPolicing_MARI_ED_and_CM.py"
 is Python code for the simulation. When you run the file, you enter the following four arguments:
+- The 'Simulation_DC_OpioidPolicing_MARI_ED_and_CM.py' file
 - The number of runs you wish to conduct
-- The length in years you want the simulation to run (with a default of a 5 year warm-up period)
-- the line in the "AllScenarioMatrix.csv"
+- The length in years you want the simulation to run (this does not include the hard-coded 5-year warm-up period)
+- the line number in the "AllScenarioMatrix.csv" that corresponds to the exact scenario you wish to run
 
