@@ -22,19 +22,19 @@ def OLS_Results_Table(df, param_name, df_prcc, year_list):
             table += f" & {(backslash_char + 'bf{' + str(df[4][idx][y_idx]['effect_size']) ) if df_prcc[idx]['ODeaths_pval_'+year] <0.05 else str(df[4][idx][y_idx]['effect_size'])}"
             table += f"{'$^*$}   ' if df_prcc[idx]['ODeaths_pval_'+year] <0.05 else ''}"
         #check if p_val of arrest is significant if so bf
-        for year in year_list:
-            table += f" & {(backslash_char + 'bf{' + str(df[1][idx][y_idx]['effect_size']) ) if df_prcc[idx]['Arrest_pval_'+year] <0.05 else str(df[1][idx][y_idx]['effect_size'])}"
-            table += f"{'$^*$ }  ' if df_prcc[idx]['Arrest_pval_'+year] <0.05 else ''}"                
+        for y_idx, year in enumerate(year_list):
+            table += f" & {(backslash_char + 'bf{' + str(df[1][idx][y_idx]['effect_size']) ) if df_prcc[idx]['OArrest_pval_'+year] <0.05 else str(df[1][idx][y_idx]['effect_size'])}"
+            table += f"{'$^*$ }  ' if df_prcc[idx]['OArrest_pval_'+year] <0.05 else ''}"                
         #check if p_val of hosp is significant if so bf
-        for year in year_list:
+        for y_idx, year in enumerate(year_list):
             table += f" & {(backslash_char + 'bf{' + str(df[2][idx][y_idx]['effect_size']) ) if df_prcc[idx]['Hosp_pval_'+year] <0.05 else str(df[2][idx][y_idx]['effect_size'])}"
             table += f"{'$^*$ }  ' if df_prcc[idx]['Hosp_pval_'+year] <0.05 else ''}"
         #check if p_val of treat is significant if so bf
-        for year in year_list:
+        for y_idx, year in enumerate(year_list):
             table += f" & {(backslash_char + 'bf{' + str(df[7][idx][y_idx]['effect_size']) ) if df_prcc[idx]['Treats_pval_'+year] <0.05 else str(df[7][idx][y_idx]['effect_size'])}"
             table += f"{'$^*$  } ' if df_prcc[idx]['Treats_pval_'+year] <0.05 else ''}"
         #check if p_val of active is significant if so bf
-        for year in year_list:
+        for y_idx, year in enumerate(year_list):
             table += f" & {(backslash_char + 'bf{' + str(df[0][idx][y_idx]['effect_size']) ) if df_prcc[idx]['Active_pval_'+year] <0.05 else str(df[0][idx][y_idx]['effect_size'])}"
             table += f"{'$^*$  } ' if df_prcc[idx]['Active_pval_'+year] <0.05 else ''}"
         #next row of table 
@@ -76,9 +76,9 @@ def PRCC_Results_Table(df, param_name, year_list):
                     table += f"{'(' + str(df[l_idx]['ODeaths_pval_'+year]) + ') }' if df[l_idx]['ODeaths_pval_'+year] <0.05 else '(' + str(df[l_idx]['ODeaths_pval_'+year]) + ')'}"
                 #check if p_val of arrest is significant if so bf
                 for year in year_list:
-                    table += f" & {(backslash_char + 'bf{' + str(df[l_idx]['Arrest_coe_'+year]) ) if df[l_idx]['Arrest_pval_'+year] <0.05 else str(df[l_idx]['Arrest_coe_'+year])}"
-                    table += f"{'$^*$  ' if df[l_idx]['Arrest_pval_'+year] <0.05 else ''}"
-                    table += f"{'(' + str(df[l_idx]['Arrest_pval_'+year]) + ') }' if df[l_idx]['Arrest_pval_'+year] <0.05 else '(' + str(df[l_idx]['Arrest_pval_'+year]) + ')'}"
+                    table += f" & {(backslash_char + 'bf{' + str(df[l_idx]['OArrest_coe_'+year]) ) if df[l_idx]['OArrest_pval_'+year] <0.05 else str(df[l_idx]['OArrest_coe_'+year])}"
+                    table += f"{'$^*$  ' if df[l_idx]['OArrest_pval_'+year] <0.05 else ''}"
+                    table += f"{'(' + str(df[l_idx]['OArrest_pval_'+year]) + ') }' if df[l_idx]['OArrest_pval_'+year] <0.05 else '(' + str(df[l_idx]['OArrest_pval_'+year]) + ')'}"
                 #check if p_val of hosp is significant if so bf
                 for year in year_list:
                     table += f" & {(backslash_char + 'bf{' + str(df[l_idx]['Hosp_coe_'+year]) ) if df[l_idx]['Hosp_pval_'+year] <0.05 else str(df[l_idx]['Hosp_coe_'+year])}"
