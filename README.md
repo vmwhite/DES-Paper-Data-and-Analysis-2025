@@ -9,7 +9,7 @@ This folder obtains the collected raw data used to estimate the input parameters
 - The file "LNdist_DoubleCheck.xlsx" contains any calculations made from the original data sources and an overall summary
 - The file "NSDUH - Drug Initiation Data/InitationTables.xlsx" shows the calculations to estimate Dane County Opioid Use Prevalence and Initiation.
 
-## The "DataCleanngDCSim_NEW.py" file
+## The "Simulation_Functions/DataCleanngDCSim_NEW.py" file
 This is Python code used to clean the raw data in the "DataSources" folder.
 
 ## The "AllScenarioMatrix.csv" file
