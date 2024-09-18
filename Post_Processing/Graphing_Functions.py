@@ -38,19 +38,21 @@ def dict_set_sd(dict, years):
     return np.std(dict_list, axis =1)
 
 def dict_diff(dict1,dict2, years):
+    #comparison_val, baseline_val
     t_crit =scipy.stats.t.ppf(q=1-(.05/2),df=599)
     p_crit = scipy.stats.t.sf(t_crit,599-1)*2
     dict_list= [[] for n in dict1.items()]
     for n, d in dict1.items():
-        dict_list[n]= abs(dict1[n] - dict2[n])
+        dict_list[n]= dict1[n] - dict2[n]
     dict_list = pd.DataFrame(data=dict_list)
     dict_list =dict_list.dropna(axis="columns")
+    dict_list =dict_list.iloc[:,9:]
     df_diff = dict_list.agg(['mean', 'std'], axis=0)
+
     df_diff.loc["diff_t_score"] = df_diff.apply((lambda row: row[0]/ (row[1]/ np.sqrt(600))), axis=0)
     df_diff.loc["diff_p_val"] = df_diff.apply((lambda row2: scipy.stats.t.sf(abs(row2[2]),n-1)*2 ))
     df_diff.loc["diff_p_val_text"] = df_diff.apply((lambda row3:  '$<0.001$' if  row3[3] < 0.001 and math.isnan(row3[3]) == False else str(round(row3[3],3))), axis=0) 
     df_diff.loc["dif_sig?"]= df_diff.apply((lambda row3: "yes" if  row3[3] < p_crit and math.isnan(row3[2]) == False else "No"))
-
     return df_diff
 ########################################## graphing funcitons ##########################################
 def print_histogram(list,bins_num,s,stringx,stringy,name):
@@ -115,7 +117,7 @@ def print_barChart(data,s,stringx,stringy,name,num_years, warmup):
     plt.savefig('Results/Figures/Scenario'+str(s)+'/Year_'+name+'_Hist.png')
     plt.close()
 
-def pi_graph(sim_avg, sim_max, sim_min, sim_sd, e_year, e_lower, e_mean,name,start_year, num_years, warmup, n_runs):
+def pi_graph(Folder, sim_avg, sim_max, sim_min, sim_sd, e_year, e_lower, e_mean,name,start_year, num_years, warmup, n_runs):
     plt.figure(figsize=(11, 8),dpi=600)
     errSIM = sim_sd/ np.sqrt(n_runs)*1.96 #normal mean confidence intervals
     errSIM = [x - y for x, y in zip(sim_max, sim_min)] #non-parametric prediction intervals
@@ -125,23 +127,24 @@ def pi_graph(sim_avg, sim_max, sim_min, sim_sd, e_year, e_lower, e_mean,name,sta
     # print(errED)
     new_year_list = []
     e_year = e_year.astype('int64')
+    e_year = e_year[e_year['Year'] < 2018]
     for year in range(start_year, start_year+num_years): 
         new_year_list.append(int(year))
     plt.errorbar(e_year,e_mean, errED, elinewidth = 3,  capsize=14, color="gray",ls="-.", linewidth= 5)
     plt.errorbar(new_year_list[warmup:],sim_avg[warmup:],errSIM[warmup:], elinewidth = 4, capsize=14, capthick=4, color="black" , linewidth = 4)
     plt.xlabel('Year')
-    plt.autoscale(enable=True, axis='both', tight=None) 
+    plt.autoscale(enable=True, axis='y', tight=None) 
     #plt.xticks(np.arange(2005, 2035, step=5),rotation=45)
     plt.ylabel(name+' per Year')
-    plt.legend(['Observed', 'Simulated 95% Joint Prediction Interval'], bbox_to_anchor=(.5, 1.2), loc='center',fancybox=True, shadow=True)
+    plt.legend(['Target Data', 'Simulated 95% Joint Prediction Interval'], bbox_to_anchor=(.5, 1.2), loc='center',fancybox=True, shadow=True)
     
     #plt.autoscale()
     plt.tight_layout(h_pad=0)
     name = name.replace("\n","")
-    plt.savefig('Results/Figures/'+name+'_PI.png',bbox_inches='tight')
+    plt.savefig(Folder  +'/'+name+'_PI.png',bbox_inches='tight')
     plt.close()
 
-def pi_graph_point(sim_avg, sim_max, sim_min, sim_sd, e_points,e_col,name, start_year, num_years, warmup, n_runs):
+def pi_graph_point(Folder,sim_avg, sim_max, sim_min, sim_sd, e_points,e_col,name, start_year, num_years, warmup, n_runs):
     #add min and max values.
      
     plt.figure(figsize=(11, 8),dpi=300)
@@ -154,9 +157,10 @@ def pi_graph_point(sim_avg, sim_max, sim_min, sim_sd, e_points,e_col,name, start
         new_year_list.append(int(year))
     if  isinstance(e_points, pd.DataFrame):
         e_points["Year"] = e_points["Year"].astype('int64')
+        e_points = e_points[e_points['Year'] < 2018]
         plt.plot(e_points["Year"].values,e_points[e_col].values, color = "gray",ls="-.", linewidth = 5)
         plt.errorbar(new_year_list[warmup:],sim_avg[warmup:],errSIM[warmup:], elinewidth = 4, capsize=14, capthick=4, color ="black", linewidth= 4)
-        plt.legend( ['Observed','Simulated 95% Joint Prediction Interval'],bbox_to_anchor=(.5, 1.25),loc='center',fancybox=True, shadow=True)     
+        plt.legend( ['Target Data','Simulated 95% Joint Prediction Interval'],bbox_to_anchor=(.5, 1.25),loc='center',fancybox=True, shadow=True)     
     else:
         plt.errorbar(new_year_list[warmup:],sim_avg[warmup:],errSIM[warmup:], elinewidth = 4, capsize=14,capthick=4,  color="black", linewidth = 4)
         plt.legend(['Simulated 95% Joint Prediction Interval'],bbox_to_anchor=(.5, 1.25),loc='center',fancybox=True, shadow=True)
@@ -168,7 +172,7 @@ def pi_graph_point(sim_avg, sim_max, sim_min, sim_sd, e_points,e_col,name, start
     #plt.autoscale()
     plt.tight_layout(h_pad=0)
     name = name.replace("\n","")
-    plt.savefig('Results/Figures/'+name+'_PI.png',bbox_inches='tight',)
+    plt.savefig(Folder+'/'+name+'_PI.png',bbox_inches='tight',)
     plt.close()
     
 def ci_graph(sim_avg, sim_sd, e_year, e_lower, e_mean,name,start_year, num_years, warmup, n_runs,save_as,z_score):
@@ -216,3 +220,4 @@ def ci_graph_point(sim_avg, sim_sd, comp_avg, comp_sd,name, start_year, num_year
     plt.autoscale()
     plt.savefig(save_as)
     plt.close()
+

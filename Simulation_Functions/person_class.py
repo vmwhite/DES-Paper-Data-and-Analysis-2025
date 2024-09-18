@@ -1,6 +1,6 @@
 import sys
 import simpy
-from Simulation_DC_OpioidPolicing.DES_functions import *
+from Simulation_Functions.DES_functions import *
 ################################################################# MODEL #####################################################################################
 class User(object):
     def __init__(self, env,i, initial_done, Person_Dict, gen_dict, params):        

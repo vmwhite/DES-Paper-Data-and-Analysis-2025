@@ -1,6 +1,5 @@
 '''
-This file was converted from Results_Tables.RMD
-to read in values and create final result latex table.
+This file reads in values from .csv files and create final result latex table.
 Before you run this you will need to:
     run Compile Raw Results.py
     change the folder list
@@ -58,64 +57,65 @@ def Add_to_Yearly_Sum_Table(df, df_appended, Scen, Out, Cost, n):
 
     return df_appended
 ## Event Costs ###############################################################################################################################
-DC_to_WI_ratio = 205000 / 36000
-A_Cost = (14707 * 0.75 + 183186)/DC_to_WI_ratio
-C_Cost = 14707 * 0.25 + 6961
-Inflation_rate = 1.19
-n = 600
-
-
+n = 2
 df_Per_Person_Yearly_Costs = {
-    'Opioid-Related Death': [11548000],
-    'Criminal Justice System': [C_Cost],
-    'Hospital Encounters': [14705],
-    'Treatment': [1660],
-    'Active Use': [A_Cost],
+    'Opioid-Related Death': [11548462],
+    'Opioid-Related Arrests, non-Diverted': [55726],
+    'Hospital Encounters': [20077],
+    'Treatment': [1812],
+    'Active Use': [34106],
     'Inactive_State': [0],
 }
 ## Things to Update Results ###############################################################################################################
-output_folder = r'Results_ED2RVal_22270_MARIVal_0_CMVal_0_Scen_1000_Years_25_Time_033023_023844/summaries600'
+output_folder = r'Results_0Process_ED2RVal_22270_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_051724_203606'
 
-folder_list = [r'Results_ED2RVal_22270_MARIVal_0_CMVal_0_Scen_1000_Years_25_Time_033023_023844',
-r'Results_ED2RVal_22270_MARIVal_0_CMVal_20_Scen_1000_Years_25_Time_033023_092508',
-r'Results_ED2RVal_22270_MARIVal_0_CMVal_40_Scen_1000_Years_25_Time_033023_024503',
-r'Results_ED2RVal_22270_MARIVal_0_CMVal_60_Scen_1000_Years_25_Time_033023_042120',
-r'Results_ED2RVal_22270_MARIVal_0_CMVal_80_Scen_1000_Years_25_Time_033023_031124',
-r'Results_ED2RVal_22270_MARIVal_0_CMVal_100_Scen_1000_Years_25_Time_033023_021852',
-r'Results_ED2RVal_22270_MARIVal_20_CMVal_0_Scen_1000_Years_25_Time_033023_022830',
-r'Results_ED2RVal_22270_MARIVal_40_CMVal_0_Scen_1000_Years_25_Time_033023_040647',
-r'Results_ED2RVal_22270_MARIVal_60_CMVal_0_Scen_1000_Years_25_Time_033023_014303',
-r'Results_ED2RVal_22270_MARIVal_80_CMVal_0_Scen_1000_Years_25_Time_033023_023019',
-r'Results_ED2RVal_22270_MARIVal_100_CMVal_0_Scen_1000_Years_25_Time_033023_025006',
-r'Results_ED2RVal_30000_MARIVal_0_CMVal_0_Scen_1000_Years_25_Time_033023_131333',
-r'Results_ED2RVal_40000_MARIVal_20_CMVal_20_Scen_1000_Years_25_Time_033023_015145',
-r'Results_ED2RVal_45000_MARIVal_0_CMVal_0_Scen_1000_Years_25_Time_033023_023133',
-r'Results_ED2RVal_60000_MARIVal_0_CMVal_0_Scen_1000_Years_25_Time_033023_043938',
-r'Results_ED2RVal_60000_MARIVal_40_CMVal_40_Scen_1000_Years_25_Time_033023_021800',
-r'Results_ED2RVal_75000_MARIVal_0_CMVal_0_Scen_1000_Years_25_Time_033023_050610',
-r'Results_ED2RVal_80000_MARIVal_60_CMVal_60_Scen_1000_Years_25_Time_033023_030711',
-r'Results_ED2RVal_90000_MARIVal_0_CMVal_0_Scen_1000_Years_25_Time_033023_031549']
+folder_list = [r'Results_0Process_ED2RVal_22270_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_051724_203606',
+r'Results_1Process_ED2RVal_30000_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_051724_194511',
+r'Results_2Process_ED2RVal_45000_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_051724_210127',
+r'Results_3Process_ED2RVal_60000_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_051724_151544',
+r'Results_4Process_ED2RVal_75000_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_051724_201600',
+r'Results_5Process_ED2RVal_90000_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_051724_143934',
+r'Results_6Process_ED2RVal_22270_MARIVal_20_CMVal_0_Scen_600_Years_25_Time_051724_194618',
+r'Results_7Process_ED2RVal_22270_MARIVal_40_CMVal_0_Scen_600_Years_25_Time_051724_143736',
+r'Results_8Process_ED2RVal_22270_MARIVal_60_CMVal_0_Scen_600_Years_25_Time_051724_192330',
+r'Results_9Process_ED2RVal_22270_MARIVal_80_CMVal_0_Scen_600_Years_25_Time_051724_150123',
+r'Results_10Process_ED2RVal_22270_MARIVal_100_CMVal_0_Scen_600_Years_25_Time_051724_141226',
+r'Results_11Process_ED2RVal_22270_MARIVal_0_CMVal_20_Scen_600_Years_25_Time_051724_135815',
+r'Results_12Process_ED2RVal_22270_MARIVal_0_CMVal_40_Scen_600_Years_25_Time_051724_135714',
+r'Results_13Process_ED2RVal_22270_MARIVal_0_CMVal_60_Scen_600_Years_25_Time_051724_140819',
+r'Results_14Process_ED2RVal_22270_MARIVal_0_CMVal_80_Scen_600_Years_25_Time_051724_140527',
+r'Results_15Process_ED2RVal_22270_MARIVal_0_CMVal_100_Scen_600_Years_25_Time_051724_142528',
+r'Results_16Process_ED2RVal_40000_MARIVal_20_CMVal_20_Scen_600_Years_25_Time_051724_150754',
+r'Results_17Process_ED2RVal_60000_MARIVal_40_CMVal_40_Scen_600_Years_25_Time_051724_145529',
+r'Results_18Process_ED2RVal_80000_MARIVal_60_CMVal_60_Scen_600_Years_25_Time_051724_164846']
 
-CJS_cost_multfolder_list = [1,1,1,1,1,1,.8,.6,.4,.2, 0, 1,.8,1, 1, .6, 1, .4, 1]
+Output_files= ['Base_Yearly_ODeaths.csv','Base_Yearly_OCrimes.csv', 'Base_Yearly_Hosp.csv' ,'Base_Yearly_Treats.csv', 'Base_Yearly_Active_YearEnd.csv' ,'Cum_ODeaths.csv','Cum_OCrimes.csv', 'Cum_Hosp.csv' ,'Cum_Treats.csv', 'Cum_Active_YearEnd.csv' ]
+Output_title = ['Opioid-Related Death', 'Opioid-Related Arrests', 'Hospital Encounters', 'Treatment','Active Use','Cumulative Opioid-Related Death', 'Cumulative Opioid-Related Arrests', 'Cumulative Hospital Encounters', 'Cumulative Treatment','Cumulative Active Use'] # 'Prevalence']
 
-Output_files= ['Base_Yearly_ODeaths.csv','Base_Yearly_Arrests.csv', 'Base_Yearly_Hosp.csv' ,'Base_Yearly_Treats.csv','Base_Yearly_Active_YearEnd.csv' ]
-Output_title = ['Opioid-Related Death', 'Criminal Justice System', 'Hospital Encounters', 'Treatment', 'Active Use']
 Output_Scenario = ['Base', 
-                   'CM20','CM40','CM60','CM80','CM100',
+                   'OD30','OD45','OD60','OD75', 'OD90',
                    'AD20','AD40','AD60','AD80','AD100',
-                   'OD30','AD20_OD40_CM20', 'OD45','OD60', 'AD40_OD60_CM40', 
-                   'OD75', 'AD60_OD80_CM60', 'OD90']
+                   'CM20','CM40','CM60','CM80','CM100',
+                   'AD20_OD40_CM20',  'AD40_OD60_CM40', 
+                    'AD60_OD80_CM60']
+
 Output_Scenario_TableOrder = ['Base', 
                               'AD20','AD40','AD60','AD80','AD100',
                               'OD30', 'OD45','OD60',  'OD75', 'OD90', 
                               'CM20','CM40','CM60','CM80','CM100',
                               'AD20_OD40_CM20','AD40_OD60_CM40','AD60_OD80_CM60']
 ScenOrder_files_to_table = {0:0, 
-                            1:11, 2:12, 3:13, 4:14, 5:15, 
+                            1:6, 2:7, 3:8, 4:9, 5:10, 
                             6:1, 7:2, 8:3, 9:4, 10:5,
-                            11:6, 12:16, 13:7, 14:8, 15:17, 
-                            16:9, 17:18, 18:10}
+                            11:11, 12:12, 13:13, 14:14, 15:15, 
+                            16:16, 17:17, 18:18}
 ScenOrder_table_to_files = {v: k for k, v in ScenOrder_files_to_table.items()}
+
+year_to_index = {
+    2032 :25,    2031: 24,    2030:23,
+    2029: 22,    2028:21,     2027:20,    2026:19,    2025:18,    2024:17,  2023:16,    2022:15,    2021:14,    2020:13,
+    2019:12,    2018:11,    2017:10,    2016:9,     2015:8 
+}
 
 policy_dict = {
     'Base' : '0, 22, 0', 
@@ -139,95 +139,140 @@ policy_dict = {
    'AD60_OD80_CM60': '60, 80, 60'
 }
 
-# Calculating Results ################################################################################################################################################
-# Remove the existing df.Yearly if it exists
-df_Yearly = None
+# Function to find the last value in a tuple based on other items
+def find_last_value(data, item1, item2, item3, item4, item5):
+    for tup in data:
+        if tup[0] == item1 and tup[1] == item2 and tup[2] ==item3 and tup[3] ==item4 and tup[4] ==item5:
+            return tup[-1]  # Return the last item in the tuple
 
+years = [2017, 2023, 2027, 2032]
+n= 600
+# Calculating Results ###############################################################################################################################################
+#'''
 # Create an empty DataFrame named df_Yearly
-df_Yearly = pd.DataFrame()
-df_diff = pd.DataFrame()
-df_diff_cost = pd.DataFrame()
-df_mean_cost = pd.DataFrame()
+data =[]
+print("... gathering data ...")
+# Iterate over folders and files
 for f_idx, folder in enumerate(folder_list):
-    # Call the Add_to_Yearly_Sum_Table function for each data frame and append the results to df_Yearly
     for idx, file in enumerate(Output_files):
-        file_location = folder +'/summaries/'+file
+        file_location = f"{folder}/summaries{n}/{file}"
         table_values_raw = pd.read_csv(file_location)
-        if Output_title[idx] == "Criminal Justice System":
-            multiplier = CJS_cost_multfolder_list[f_idx]
-        else:
-            multiplier = 1
-        ### calculate differences for final year,  2032
-        df_diff[Output_Scenario[f_idx]+'_'+Output_title[idx]+ '_Mean_2032'] = table_values_raw.iloc[:n,25] 
-        #df_diff_cost[Output_Scenario[f_idx]+'_'+Output_title[idx]+ '_CostMean_2032'] = table_values_raw.iloc[:n,25] * df_Per_Person_Yearly_Costs[Output_title[idx]]
-        df_mean_cost[Output_Scenario[f_idx]+'_'+Output_title[idx]+ '_CostMean_2032'] = table_values_raw.iloc[:n,25] * df_Per_Person_Yearly_Costs[Output_title[idx]]*multiplier
-        df_diff[Output_Scenario[f_idx]+'_' +Output_title[idx]+'_Diff_2032'] = table_values_raw.iloc[:n,25] - df_diff['Base_'+ Output_title[idx]+'_Mean_2032']
-        #df_diff_cost[Output_Scenario[f_idx]+'_'+Output_title[idx]+ '_CostDiff_2032'] = (table_values_raw.iloc[:n,25] *  df_Per_Person_Yearly_Costs[Output_title[idx]]) - df_diff_cost['Base_'+ Output_title[idx]+'_CostMean_2032']
-        df_Yearly = Add_to_Yearly_Sum_Table(table_values_raw , df_Yearly, Output_Scenario[f_idx], Output_title[idx],
-                                        df_Per_Person_Yearly_Costs[Output_title[idx]], n)
-        
-        #for cost validaion in 2017
-        df_diff[Output_Scenario[f_idx]+'_'+Output_title[idx]+ '_Mean_2017'] = table_values_raw.iloc[:n,10]
-        #df_diff_cost[Output_Scenario[f_idx]+'_'+Output_title[idx]+ '_CostMean_2017'] = table_values_raw.iloc[:n,10] * df_Per_Person_Yearly_Costs[Output_title[idx]]
-        df_mean_cost[Output_Scenario[f_idx]+'_'+Output_title[idx]+ '_CostMean_2017'] = table_values_raw.iloc[:n,10] * df_Per_Person_Yearly_Costs[Output_title[idx]]*multiplier
-        df_diff[Output_Scenario[f_idx]+'_' +Output_title[idx]+'_Diff_2017'] = table_values_raw.iloc[:n,10] - df_diff['Base_'+ Output_title[idx]+'_Mean_2017']
-        #df_diff_cost[Output_Scenario[f_idx]+'_'+Output_title[idx]+ '_CostDiff_2017'] = (table_values_raw.iloc[:n,10] *  df_Per_Person_Yearly_Costs[Output_title[idx]]) - df_diff_cost['Base_'+ Output_title[idx]+'_CostMean_2017']
-        df_Yearly = Add_to_Yearly_Sum_Table(table_values_raw , df_Yearly, Output_Scenario[f_idx], Output_title[idx],
-                                        df_Per_Person_Yearly_Costs[Output_title[idx]], n)
-df_Yearly.to_csv(output_folder+"\All_yearly_values.csv", index=False)
-#total cost calculations for each scenario # per scenario
-df_all = df_diff
-df_total_costs = pd.DataFrame()
-for t_idx, line in enumerate(Output_Scenario_TableOrder):
-    f_idx = ScenOrder_table_to_files[t_idx]
-    df_total_costs["Total_2017_"+Output_Scenario[f_idx]+"_Mean_Cost"]= df_all.apply(lambda row: df_Per_Person_Yearly_Costs['Opioid-Related Death'][0]*row[2+(f_idx*(4+16))] 
-                                                                               + df_Per_Person_Yearly_Costs['Criminal Justice System'][0]*row[6+(f_idx*(4+16))] *CJS_cost_multfolder_list[f_idx]
-                                                                               + df_Per_Person_Yearly_Costs['Hospital Encounters'][0]*row[10+(f_idx*(4+16))]
-                                                                                 + df_Per_Person_Yearly_Costs['Treatment'][0]*row[14+(f_idx*(4+16))] 
-                                                                                 + df_Per_Person_Yearly_Costs['Active Use'][0]*row[18+(f_idx*(4+16))], axis=1 )
-    df_total_costs["Total_2017_"+Output_Scenario[f_idx]+"_Diff_Cost"]= df_all.apply(lambda row: df_Per_Person_Yearly_Costs['Opioid-Related Death'][0]*row[3+(f_idx*(4+16))] 
-                                                                               + df_Per_Person_Yearly_Costs['Criminal Justice System'][0]*(row[7+(f_idx*(4+16))] + row[6+(f_idx*(4+16))] - (CJS_cost_multfolder_list[f_idx]*row[6+(f_idx*(4+16))]))
-                                                                               + df_Per_Person_Yearly_Costs['Hospital Encounters'][0]*row[11+(f_idx*(4+16))]
-                                                                                 + df_Per_Person_Yearly_Costs['Treatment'][0]*row[15+(f_idx*(4+16))] 
-                                                                                 + df_Per_Person_Yearly_Costs['Active Use'][0]*row[19+(f_idx*(4+16))], axis=1 )
-    df_total_costs["Total_2032_"+Output_Scenario[f_idx]+"_Mean_Cost"]= df_all.apply(lambda row: df_Per_Person_Yearly_Costs['Opioid-Related Death'][0]*row[0+(f_idx*(4+16))] 
-                                                                               + df_Per_Person_Yearly_Costs['Criminal Justice System'][0]*row[4+(f_idx*(4+16))] *CJS_cost_multfolder_list[f_idx]
-                                                                                 + df_Per_Person_Yearly_Costs['Hospital Encounters'][0]*row[8+(f_idx*(4+16))] 
-                                                                                 + df_Per_Person_Yearly_Costs['Treatment'][0]*row[12+(f_idx*(4+16))] 
-                                                                                 + df_Per_Person_Yearly_Costs['Active Use'][0]*row[16+(f_idx*(4+16))], axis=1 )
-    df_total_costs["Total_2032_"+Output_Scenario[f_idx]+"_Diff_Cost"]= df_all.apply(lambda row: df_Per_Person_Yearly_Costs['Opioid-Related Death'][0]*row[1+(f_idx*(4+16))] 
-                                                                               + df_Per_Person_Yearly_Costs['Criminal Justice System'][0]*(row[5+(f_idx*(4+16))]-row[4+(f_idx*(4+16))]  +(row[4+(f_idx*(4+16))] *CJS_cost_multfolder_list[f_idx]))
-                                                                                 + df_Per_Person_Yearly_Costs['Hospital Encounters'][0]*row[9+(f_idx*(4+16))] 
-                                                                                 + df_Per_Person_Yearly_Costs['Treatment'][0]*row[13+(f_idx*(4+16))] 
-                                                                                 + df_Per_Person_Yearly_Costs['Active Use'][0]*row[17+(f_idx*(4+16))], axis=1 )
+        file2_location = f"{folder}/summaries{n}/Cum_OArrests.csv"
+        table_values_Arrests_raw = pd.read_csv(file2_location)
+        file3_location = f"{folder}/summaries{n}/Base_Yearly_OArrests.csv"
+        table_values_ArrestsYear_raw = pd.read_csv(file3_location)
+        scenario = Output_Scenario[f_idx]
+        for year in years:
+            for run in range(0,n):
+                # Calculate differences for each year
+                value = table_values_raw.iloc[run, year_to_index[year]]
+                if 'Cum_OCrime' in file:
+                    value = table_values_Arrests_raw.iloc[run, year_to_index[year]]
+                    cost = value * df_Per_Person_Yearly_Costs["Opioid-Related Arrests, non-Diverted"][0]
+                elif 'OCrime' in file:
+                    value = table_values_ArrestsYear_raw.iloc[run, year_to_index[year]]
+                    cost = value * df_Per_Person_Yearly_Costs["Opioid-Related Arrests, non-Diverted"][0]
+                else:
+                    if 'ODeath' in file:
+                        output_title = 'Opioid-Related Death'
+                    if 'Hosp' in file:
+                        output_title = 'Hospital Encounters'
+                    if 'Treat' in file:
+                        output_title = 'Treatment'
+                    if 'Active' in file:
+                        output_title ='Active Use' 
+                    cost = value * df_Per_Person_Yearly_Costs[output_title][0]
+                data.append([scenario, run, file, 'Value', year, value])
+                data.append([scenario, run, file, 'CostValue', year, cost])
+                if scenario != "Base":
+                    Base_val = find_last_value(data, "Base", run, file, "Value", year)
+                    diff_value = Base_val - value
+                    data.append([scenario, run, file,'Diff', year, diff_value])
+                    Base_cost = find_last_value(data, "Base", run, file, "CostValue", year)
+                    diff_cost = Base_cost - cost
+                    data.append([scenario, run, file, 'DiffCost', year, diff_cost])
 
-df_cost_new =df_total_costs.agg(['mean', 'std', 'min', 'max'], axis=0)
-df_cost_new.loc['cost_se'] = df_cost_new.apply((lambda row: (row[1] / np.sqrt(n))), axis=0)
-df_cost_new.loc['cost_t_score'] = df_cost_new.apply((lambda row: row[0]/row[4]), axis=0)
-df_cost_new.loc['cost_p_value'] = df_cost_new.apply((lambda row:  '$<$0.001' if  scipy.stats.t.sf(abs(row[5]),n-1)*2 < 0.001 and math.isnan(row[5]) == False else str(round(scipy.stats.t.sf(abs(row[5]),n-1)*2,3))), axis=0) 
-df_cost_new.loc['SignificantCost?'] = df_cost_new.apply((lambda row: 'Yes' if  scipy.stats.t.sf(abs(row[5]),n-1)*2 < 0.05 and math.isnan(row[5]) == False else ( 'Yes1' if scipy.stats.t.sf(abs(row[5]),n-1)*2 < 0.1 and math.isnan(row[5]) == False else 'No')),axis=0) 
-df_cost_new = df_cost_new = df_cost_new.T
+# Construct MultiIndex for columns
+columns = ['Scenario', 'Run', 'file', 'Type', 'Year', 'Value']
+# Create DataFrame
+df = pd.DataFrame(data, columns=columns)
+df.to_csv(output_folder+"\All_raw_data.csv", index=False)
+print(f'Printed raw data to {output_folder} \All_raw_data.csv')
+#conduct paired t-test on main outcome values:
+df_runs = pd.DataFrame(columns=['Scenario', 'Year', 'Type', 'file', 'mean', 'std', 'se', 'min', 'max', 't_stat', 'p_val'])
+row = 0
+for scenario in df['Scenario'].unique():
+    for year in df['Year'].unique():
+        for output in df['file'].unique():
+            for type in df['Type'].unique():
+                    group1= df[(df['Scenario'] == scenario) & (df['Year'] == year) & (df['Type'] == type)& (df['file'] == output)]['Value']
+                    group_base = df[(df['Scenario'] == "Base") & (df['Year'] == year) & (df['Type'] == type)& (df['file'] == output)]['Value']
+                    df_runs.loc[row, 'Scenario'] = scenario
+                    df_runs.loc[row, 'Year'] = year
+                    df_runs.loc[row, 'file'] = output
+                    df_runs.loc[row, 'Type'] = type
+                    df_runs.loc[row, 'mean'] = np.mean(group1)
+                    df_runs.loc[row, 'std'] = np.std(group1)
+                    df_runs.loc[row, 'se'] = np.std(group1) / np.sqrt(n)
+                    df_runs.loc[row, 'max'] = np.max(group1)
+                    df_runs.loc[row, 'min'] = np.min(group1)
+                    if scenario == 'Base':
+                        row += 1
+                        continue
+                    # Perform paired t-test
+                    try:
+                        t_statistic, p_value = scipy.stats.ttest_rel(group1, group_base)
+                    except:
+                         group_base = [0]*n
+                         t_statistic, p_value = scipy.stats.ttest_rel(group1, group_base)
+                    df_runs.loc[row, 't_stat'] = t_statistic
+                    df_runs.loc[row, 'p_val'] = p_value
+                    row += 1
 
-#Obtain mean difference of total counts # per event type
-df_diff_new = df_diff.agg(['mean', 'std'], axis=0)
-df_diff_new.loc["mean_se"] = df_diff_new.apply((lambda row: (row[1] / np.sqrt(n))), axis=0)
-df_diff_new.loc["mean_t_score"] = df_diff_new.apply((lambda row: (row[0] /row[2])), axis=0)
-df_diff_new.loc["mean_p-value"] = df_diff_new.apply((lambda row:  '$<$0.001' if  scipy.stats.t.sf(abs(row[3]),n-1)*2 < 0.001 and math.isnan(row[3]) == False else str(round(scipy.stats.t.sf(abs(row[3]),n-1)*2,3))), axis=0) 
-df_diff_new.loc['SignificantMean?']  = df_diff_new.apply((lambda row: 'Yes' if  scipy.stats.t.sf(abs(row[3]),n-1)*2 < 0.05 and math.isnan(row[3]) == False else ( 'Yes1' if scipy.stats.t.sf(abs(row[3]),n-1)*2 < 0.1 and math.isnan(row[3]) == False else 'No')),axis=0) 
-df_diff_new = df_diff_new.T
+df_runs['p_value'] = df_runs.apply((lambda row:  '$<$0.001' if row['p_val'] < 0.001 and math.isnan(row['p_val']) == False else str(round(row['p_val'],3))), axis=1) 
+df_runs['Significant_p_val?'] = df_runs.apply((lambda row: 'Yes' if  row['p_val'] < 0.05 and math.isnan(row['p_val']) == False else ( 'Yes1' if row['p_val'] < 0.1 and math.isnan(row['p_val']) == False else 'No')),axis=1) 
+df_runs.to_csv(output_folder+"\Allscen_run_summary.csv", index=False)
+print(f'Printed combined run summary to {output_folder} \Allscen_run_summary.csv')
 
+filter_condition = (df['Type'] == 'CostValue') | (df['Type'] == 'CostDiff')
+filtered_df = df[filter_condition]
 
-df_2032_costs =  df_cost_new.T[[col for col in df_cost_new.T if '2032' in col]]
-df_2017_costs =  df_cost_new.T[[col for col in df_cost_new.T if '2017' in col]]
-
-df_2017_costs.to_csv(output_folder+"\costs_2017.csv", index=False, sep=";")
-df_2032_costs.to_csv(output_folder+"\costs_2032.csv", index=False, sep=";")
-df_total_costs.to_csv(output_folder+"\costs_total.txt", index=False, sep=";")
-df_all.to_csv(output_folder+"\costs_all.txt", index=False, sep=";")
-
+# Group by columns and sum the 'Value' column
+df_costs =  filtered_df.groupby(['Scenario', 'Run', 'Type', 'Year']).agg({'Value':'sum'}).reset_index()
+df_costs["se"] = df_costs.apply(lambda row: (row[3] / np.sqrt(n)) if pd.notnull(row[3]) else np.nan, axis=1)
+for scenario in df['Scenario'].unique():
+    for year in df['Year'].unique():
+        for output in df['file'].unique():
+            for type in df['Type'].unique():
+                    group1= df_costs[(df_costs['Scenario'] == scenario) & (df_costs['Year'] == year) & (df_costs['Type'] == type)]['Value']
+                    group_base = df_costs[(df_costs['Scenario'] == "Base") & (df_costs['Year'] == year) & (df_costs['Type'] == type)]['Value']
+                    if scenario == 'Base':
+                        df_costs.loc[(df_costs['Scenario'] == scenario) & (df_costs['Year'] == year) & (df_costs['Type'] == type), 't_stat'] = np.nan
+                        df_costs.loc[(df_costs['Scenario'] == scenario) & (df_costs['Year'] == year) & (df_costs['Type'] == type), 'p_val'] = np.nan
+                        continue
+                    # Perform paired t-test
+                    try:
+                        t_statistic, p_value = scipy.stats.ttest_rel(group1, group_base)
+                    except:
+                         group_base = [0]*n
+                         t_statistic, p_value = scipy.stats.ttest_rel(group1, group_base)
+                    df_costs.loc[(df_costs['Scenario'] == scenario) & (df_costs['Year'] == year) & (df_costs['Type'] == type), 't_stat'] = t_statistic
+                    df_costs.loc[(df_costs['Scenario'] == scenario) & (df_costs['Year'] == year) & (df_costs['Type'] == type), 'p_val'] = p_value
+df_costs =  df_costs.groupby(['Scenario','Type', 'Year','t_stat', 'p_val'], dropna=False).agg({'Value':('mean','count','std', 'min', 'max' )}).reset_index()
+# Flatten the column names
+df_costs.columns = ['Scenario', 'Type', 'Year', 't_stat', 'p_val', 'Mean_Value', 'Count', 'Std', 'Min', 'Max']
+df_costs['cost_p_value'] = df_costs.apply((lambda row:  '$<$0.001' if row['p_val'] < 0.001 and math.isnan(row['p_val']) == False else str(round(row['p_val'],3))), axis=1) 
+df_costs['SignificantCost?'] = df_costs.apply((lambda row: 'Yes' if  row['p_val'] < 0.05 and math.isnan(row['p_val']) == False else ( 'Yes1' if row['p_val'] < 0.1 and math.isnan(row['p_val']) == False else 'No')),axis=1) 
+df_costs.to_csv(output_folder+"\Allscen_total_cost_summary.csv", index=False)
+print(f'Printed cost summary to {output_folder} \Allscen_total_cost_summary.csv')
+#'''
 ### Gernating Main_Results_Table in Latex ###############################################################################################################################
 from Table_Functions import Combined_Results_Table
+df_costs = pd.read_csv(output_folder+"\Allscen_total_cost_summary.csv")
+df_runs =pd.read_csv(output_folder+"\Allscen_run_summary.csv")
 # using functions to create a new columns for SUMMED COST TABLE
-table = Combined_Results_Table(df_cost_new, Output_Scenario_TableOrder,policy_dict, df_diff_new, Output_title,ScenOrder_table_to_files)
+year = 2032 # ten year outcomes
+table = Combined_Results_Table(df_costs, Output_Scenario_TableOrder,policy_dict, df_runs, Output_title,ScenOrder_table_to_files,year)
 with open('CombinedResultsTable.txt', 'w') as f:
     f.write(table)
+#'''

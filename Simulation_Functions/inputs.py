@@ -1,6 +1,6 @@
-from Simulation_functions.math_functions import *
+from Simulation_Functions.math_functions import *
 import sys
-from Simulation_functions.person_class import User
+from Simulation_Functions.person_class import User
 def sim_params(warmup):
     params = []
     ### arrival rate ######

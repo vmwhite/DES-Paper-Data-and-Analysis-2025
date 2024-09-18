@@ -102,7 +102,7 @@ def simulation_run(stuff):
 
     #intitial population in simualtion
     initial_done = False
-    print(".....printing arrivas.....")
+    print(".....printing arrivals.....")
     #print("main: ",gen_dict["arrival_gen"].triangular(27298.81,34224.21,43260.59))
     [Persons, params["starting_probs"]]= generate_starting_population(gen_dict, env, initial_done,params)
     #print("main: ",gen_dict["arrival_gen"].triangular(27298.81,34224.21,43260.59))

@@ -12,39 +12,37 @@ import statistics as st
 import scipy
 
 ####folders with results
-Baseline_Output_Folder_OG = r'Results_ED2RVal_22270_MARIVal_0_CMVal_0_Scen_1000_Years_25_Time_033023_023844/summaries600'
-Baseline_Folder = r'Results_ED2RVal_22270_MARIVal_0_CMVal_0_Scen_1000_Years_25_Time_033023_023844/summaries'
+Baseline_Output_Folder_OG = r'Results_0Process_ED2RVal_22270_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_051724_203606/summaries600'
+Baseline_Folder = r'Results_0Process_ED2RVal_22270_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_051724_203606/summaries600'
 Baseline_file_list = os.listdir(Baseline_Folder)
 color_list = ["gray"]
 
-All_RESULTS_folder_list = [r'Results_ED2RVal_22270_MARIVal_0_CMVal_20_Scen_1000_Years_25_Time_033023_092508/summaries',
-r'Results_ED2RVal_22270_MARIVal_0_CMVal_40_Scen_1000_Years_25_Time_033023_024503/summaries',
-r'Results_ED2RVal_22270_MARIVal_0_CMVal_60_Scen_1000_Years_25_Time_033023_042120/summaries',
-r'Results_ED2RVal_22270_MARIVal_0_CMVal_80_Scen_1000_Years_25_Time_033023_031124/summaries',
-r'Results_ED2RVal_22270_MARIVal_0_CMVal_100_Scen_1000_Years_25_Time_033023_021852/summaries',
-r'Results_ED2RVal_22270_MARIVal_20_CMVal_0_Scen_1000_Years_25_Time_033023_022830/summaries',
-r'Results_ED2RVal_22270_MARIVal_40_CMVal_0_Scen_1000_Years_25_Time_033023_040647/summaries',
-r'Results_ED2RVal_22270_MARIVal_60_CMVal_0_Scen_1000_Years_25_Time_033023_014303/summaries',
-r'Results_ED2RVal_22270_MARIVal_80_CMVal_0_Scen_1000_Years_25_Time_033023_023019/summaries',
-r'Results_ED2RVal_22270_MARIVal_100_CMVal_0_Scen_1000_Years_25_Time_033023_025006/summaries',
-r'Results_ED2RVal_30000_MARIVal_0_CMVal_0_Scen_1000_Years_25_Time_033023_131333/summaries',
-r'Results_ED2RVal_40000_MARIVal_20_CMVal_20_Scen_1000_Years_25_Time_033023_015145/summaries',
-r'Results_ED2RVal_45000_MARIVal_0_CMVal_0_Scen_1000_Years_25_Time_033023_023133/summaries',
-r'Results_ED2RVal_60000_MARIVal_0_CMVal_0_Scen_1000_Years_25_Time_033023_043938/summaries',
-r'Results_ED2RVal_60000_MARIVal_40_CMVal_40_Scen_1000_Years_25_Time_033023_021800/summaries',
-r'Results_ED2RVal_75000_MARIVal_0_CMVal_0_Scen_1000_Years_25_Time_033023_050610/summaries',
-r'Results_ED2RVal_80000_MARIVal_60_CMVal_60_Scen_1000_Years_25_Time_033023_030711/summaries',
-r'Results_ED2RVal_90000_MARIVal_0_CMVal_0_Scen_1000_Years_25_Time_033023_031549/summaries']
-ScenOrder_files_to_table = {0:0, 
-                            1:11, 2:12, 3:13, 4:14, 5:15, 
-                            6:1, 7:2, 8:3, 9:4, 10:5,
-                            11:6, 12:16, 13:7, 14:8, 15:17, 
-                            16:9, 17:18, 18:10}
+All_RESULTS_folder_list = [
+r'Results_1Process_ED2RVal_30000_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_051724_194511/summaries600',
+r'Results_2Process_ED2RVal_45000_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_051724_210127/summaries600',
+r'Results_3Process_ED2RVal_60000_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_051724_151544/summaries600',
+r'Results_4Process_ED2RVal_75000_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_051724_201600/summaries600',
+r'Results_5Process_ED2RVal_90000_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_051724_143934/summaries600',
+r'Results_6Process_ED2RVal_22270_MARIVal_20_CMVal_0_Scen_600_Years_25_Time_051724_194618/summaries600',
+r'Results_7Process_ED2RVal_22270_MARIVal_40_CMVal_0_Scen_600_Years_25_Time_051724_143736/summaries600',
+r'Results_8Process_ED2RVal_22270_MARIVal_60_CMVal_0_Scen_600_Years_25_Time_051724_192330/summaries600',
+r'Results_9Process_ED2RVal_22270_MARIVal_80_CMVal_0_Scen_600_Years_25_Time_051724_150123/summaries600',
+r'Results_10Process_ED2RVal_22270_MARIVal_100_CMVal_0_Scen_600_Years_25_Time_051724_141226/summaries600',
+r'Results_11Process_ED2RVal_22270_MARIVal_0_CMVal_20_Scen_600_Years_25_Time_051724_135815/summaries600',
+r'Results_12Process_ED2RVal_22270_MARIVal_0_CMVal_40_Scen_600_Years_25_Time_051724_135714/summaries600',
+r'Results_13Process_ED2RVal_22270_MARIVal_0_CMVal_60_Scen_600_Years_25_Time_051724_140819/summaries600',
+r'Results_14Process_ED2RVal_22270_MARIVal_0_CMVal_80_Scen_600_Years_25_Time_051724_140527/summaries600',
+r'Results_15Process_ED2RVal_22270_MARIVal_0_CMVal_100_Scen_600_Years_25_Time_051724_142528/summaries600',
+r'Results_16Process_ED2RVal_40000_MARIVal_20_CMVal_20_Scen_600_Years_25_Time_051724_150754/summaries600',
+r'Results_17Process_ED2RVal_60000_MARIVal_40_CMVal_40_Scen_600_Years_25_Time_051724_145529/summaries600',
+r'Results_18Process_ED2RVal_80000_MARIVal_60_CMVal_60_Scen_600_Years_25_Time_051724_164846/summaries600']
+
 Output_Scenario = ['Base', 
-                   'CM20','CM40','CM60','CM80','CM100',
+                   'OD30','OD45','OD60','OD75', 'OD90',
                    'AD20','AD40','AD60','AD80','AD100',
-                   'OD30','AD20_OD40_CM20', 'OD45','OD60', 'AD40_OD60_CM40', 
-                   'OD75', 'AD60_OD80_CM60', 'OD90']
+                   'CM20','CM40','CM60','CM80','CM100',
+                   'AD20_OD40_CM20',  'AD40_OD60_CM40', 
+                    'AD60_OD80_CM60']
 #number of scenarios to include
 n = 600
 ##### parameters
@@ -54,7 +52,7 @@ warmup = 5
 actual_warmup = 5
 start_year = 2013 - actual_warmup
 n_runs = n
-year_list = [2022,2027,2032]
+year_list = [2023,2027,2032]
 # Params for CI Graphs
 # plt.rcParams["axes.titlesize"] = 20
 # plt.rcParams["legend.fontsize"] = 16
@@ -121,11 +119,12 @@ for policy in ["Joint"]:#:["AD", "OD", "CM", "Joint"]:
     '''MARI Labels'''
     if policy == "AD":
         Baseline_Output_Folder = Baseline_Output_Folder_OG + '/Comparison_MARI'
-        comparison_folder_list = [r'Results_ED2RVal_22270_MARIVal_20_CMVal_0_Scen_1000_Years_25_Time_033023_022830/summaries',
-        r'Results_ED2RVal_22270_MARIVal_40_CMVal_0_Scen_1000_Years_25_Time_033023_040647/summaries',
-        r'Results_ED2RVal_22270_MARIVal_60_CMVal_0_Scen_1000_Years_25_Time_033023_014303/summaries',
-        r'Results_ED2RVal_22270_MARIVal_80_CMVal_0_Scen_1000_Years_25_Time_033023_023019/summaries',
-        r'Results_ED2RVal_22270_MARIVal_100_CMVal_0_Scen_1000_Years_25_Time_033023_025006/summaries'] 
+        comparison_folder_list = [
+        r'Results_6Process_ED2RVal_22270_MARIVal_20_CMVal_0_Scen_600_Years_25_Time_051724_194618/summaries600',
+        r'Results_7Process_ED2RVal_22270_MARIVal_40_CMVal_0_Scen_600_Years_25_Time_051724_143736/summaries600',
+        r'Results_8Process_ED2RVal_22270_MARIVal_60_CMVal_0_Scen_600_Years_25_Time_051724_192330/summaries600',
+        r'Results_9Process_ED2RVal_22270_MARIVal_80_CMVal_0_Scen_600_Years_25_Time_051724_150123/summaries600',
+        r'Results_10Process_ED2RVal_22270_MARIVal_100_CMVal_0_Scen_600_Years_25_Time_051724_141226/summaries600',] 
         ls_style=[(5, (10, 3)), '--', "-.",  (0, (3, 10, 1, 10, 1, 10)), ':']
         color_style= ['gray', 'red', 'green', 'blue', 'cyan']
         leg_labels = ['Baseline', 'AD 20%', 'AD 40%', 'AD 60%', 'AD 80%', 'AD 100%']
@@ -138,11 +137,11 @@ for policy in ["Joint"]:#:["AD", "OD", "CM", "Joint"]:
     # [ 0.3, 0.45, 0.6, 0.75, 0.9]
     if policy == "OD":
         Baseline_Output_Folder = Baseline_Output_Folder_OG + '/Comparison_ED2R'
-        comparison_folder_list = [r'Results_ED2RVal_30000_MARIVal_0_CMVal_0_Scen_1000_Years_25_Time_033023_131333/summaries',
-        r'Results_ED2RVal_45000_MARIVal_0_CMVal_0_Scen_1000_Years_25_Time_033023_023133/summaries',
-        r'Results_ED2RVal_60000_MARIVal_0_CMVal_0_Scen_1000_Years_25_Time_033023_043938/summaries',
-        r'Results_ED2RVal_75000_MARIVal_0_CMVal_0_Scen_1000_Years_25_Time_033023_050610/summaries',
-        r'Results_ED2RVal_90000_MARIVal_0_CMVal_0_Scen_1000_Years_25_Time_033023_031549/summaries']
+        comparison_folder_list = [r'Results_1Process_ED2RVal_30000_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_051724_194511/summaries600',
+        r'Results_2Process_ED2RVal_45000_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_051724_210127/summaries600',
+        r'Results_3Process_ED2RVal_60000_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_051724_151544/summaries600',
+        r'Results_4Process_ED2RVal_75000_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_051724_201600/summaries600',
+        r'Results_5Process_ED2RVal_90000_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_051724_143934/summaries600']
         color_style= ['gray', 'red', 'green', 'blue', 'cyan']
         ls_style=[(5, (10, 3)), '--', "-.",  ':', (0, (1, 1.5))]
         leg_labels = ['Baseline', 'OD 30%', 'OD 45%', 'OD 60%', 'OD 75%', 'OD 90%']
@@ -166,11 +165,12 @@ for policy in ["Joint"]:#:["AD", "OD", "CM", "Joint"]:
     '''CM Labels'''
     if policy == "CM":
         Baseline_Output_Folder = Baseline_Output_Folder_OG + '/Comparison_CM'
-        comparison_folder_list = [r'Results_ED2RVal_22270_MARIVal_0_CMVal_20_Scen_1000_Years_25_Time_033023_092508/summaries',
-        r'Results_ED2RVal_22270_MARIVal_0_CMVal_40_Scen_1000_Years_25_Time_033023_024503/summaries',
-        r'Results_ED2RVal_22270_MARIVal_0_CMVal_60_Scen_1000_Years_25_Time_033023_042120/summaries',
-        r'Results_ED2RVal_22270_MARIVal_0_CMVal_80_Scen_1000_Years_25_Time_033023_031124/summaries',
-        r'Results_ED2RVal_22270_MARIVal_0_CMVal_100_Scen_1000_Years_25_Time_033023_021852/summaries'] 
+        comparison_folder_list = [
+        r'Results_11Process_ED2RVal_22270_MARIVal_0_CMVal_20_Scen_600_Years_25_Time_051724_135815/summaries600',
+        r'Results_12Process_ED2RVal_22270_MARIVal_0_CMVal_40_Scen_600_Years_25_Time_051724_135714/summaries600',
+        r'Results_13Process_ED2RVal_22270_MARIVal_0_CMVal_60_Scen_600_Years_25_Time_051724_140819/summaries600',
+        r'Results_14Process_ED2RVal_22270_MARIVal_0_CMVal_80_Scen_600_Years_25_Time_051724_140527/summaries600',
+        r'Results_15Process_ED2RVal_22270_MARIVal_0_CMVal_100_Scen_600_Years_25_Time_051724_142528/summaries600',] 
         ls_style=[(5, (10, 3)), '--', "-.", ':',(0, (1, 10))]
         color_style= ['gray', 'red', 'green', 'blue', 'cyan']
         leg_labels = ['Baseline', 'CM 20%', 'CM 40%', 'CM 60%', 'CM 80%', 'CM100%']
@@ -179,12 +179,13 @@ for policy in ["Joint"]:#:["AD", "OD", "CM", "Joint"]:
     '''Joint Strategy Labels'''
     if policy == "Joint":
         Baseline_Output_Folder = Baseline_Output_Folder_OG + '/Comparison_Joint'
-        comparison_folder_list = [r'Results_ED2RVal_60000_MARIVal_0_CMVal_0_Scen_1000_Years_25_Time_033023_043938/summaries',
-        r'Results_ED2RVal_22270_MARIVal_60_CMVal_0_Scen_1000_Years_25_Time_033023_014303/summaries',
-        r'Results_ED2RVal_22270_MARIVal_0_CMVal_60_Scen_1000_Years_25_Time_033023_042120/summaries',
-        r'Results_ED2RVal_40000_MARIVal_20_CMVal_20_Scen_1000_Years_25_Time_033023_015145/summaries',
-        r'Results_ED2RVal_60000_MARIVal_40_CMVal_40_Scen_1000_Years_25_Time_033023_021800/summaries',
-        r'Results_ED2RVal_80000_MARIVal_60_CMVal_60_Scen_1000_Years_25_Time_033023_030711/summaries']
+        comparison_folder_list = [
+        r'Results_3Process_ED2RVal_60000_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_051724_151544/summaries600',
+        r'Results_8Process_ED2RVal_22270_MARIVal_60_CMVal_0_Scen_600_Years_25_Time_051724_192330/summaries600',
+        r'Results_13Process_ED2RVal_22270_MARIVal_0_CMVal_60_Scen_600_Years_25_Time_051724_140819/summaries600',
+        r'Results_16Process_ED2RVal_40000_MARIVal_20_CMVal_20_Scen_600_Years_25_Time_051724_150754/summaries600',
+        r'Results_17Process_ED2RVal_60000_MARIVal_40_CMVal_40_Scen_600_Years_25_Time_051724_145529/summaries600',
+        r'Results_18Process_ED2RVal_80000_MARIVal_60_CMVal_60_Scen_600_Years_25_Time_051724_164846/summaries600']
         color_style= [ 'green', 'cyan', 'gray','darkviolet' , 'red', 'blue' ]
         ls_style=[(5, (10, 3)), '--', (0, (3, 1, 1, 1)),"-.",  ':',(1 ,(1, 2,3,2))]
         leg_labels = ['Baseline', 'OD: 60% Only', 'AD 60% Only', 'CM 60% Only', 'OD: 40%, AD: 20%, CM: 20%','OD: 60%, AD: 40%, CM: 40%', 'OD: 80%, AD: 60%, CM: 60%']
@@ -210,9 +211,9 @@ for policy in ["Joint"]:#:["AD", "OD", "CM", "Joint"]:
     for idx, filename in enumerate(Baseline_file_list):
         secondary_csv = ''
         third_csv = ""
-        if "y_Arrests" in filename:
-            csv_filename = '/Base_Yearly_Arrests.csv'
-            out_pic_name = "/Crimes_CI.png"
+        if "y_OArrests" in filename:
+            csv_filename = '/Base_Yearly_OArrests.csv'
+            out_pic_name = "/OCrimes_CI.png"
             name = "Opioid-Related Arrests per Year"
             xlabel = "Opioid-Related Arrests"
             check = False
@@ -264,9 +265,21 @@ for policy in ["Joint"]:#:["AD", "OD", "CM", "Joint"]:
             name = "Individuals in the Inactive State at the End of each Year"
             xlabel = "Individuals"
             check = False
-        elif "m_Crimes" in filename:
-            csv_filename = '/Cum_Arrests.csv'
-            out_pic_name = "/Cum_Crimes_CI.png"
+        elif "m_Active" in filename:
+            csv_filename = '/Cum_Active_YearEnd.csv'
+            out_pic_name = "/Cum_Active_CI.png"
+            name = "Cumulative Active Year End"
+            xlabel = "Cumulative Active Year End"
+            check = False
+        elif "m_OCrimes" in filename:
+            csv_filename = '/Cum_OCrimes.csv'
+            out_pic_name = "/Cum_OCrimes_CI.png"
+            name = "Cumulative Number of Opioid-Related Arrests"
+            xlabel = "Cumulative Opioid-Related Arrests"
+            check = False
+        elif "m_anyCrimes" in filename:
+            csv_filename = '/Cum_anyCrimes.csv'
+            out_pic_name = "/Cum_anyCrimes_CI.png"
             name = "Cumulative Number of Arrests"
             xlabel = "Cumulative Arrests"
             check = False
@@ -294,12 +307,18 @@ for policy in ["Joint"]:#:["AD", "OD", "CM", "Joint"]:
             name = "Cumulative Number of Relapses"
             xlabel = "Cumulative Relapses"
             check = False
-        elif "Arrest_ut" in filename:
-            csv_filename = '/Base_MonthEnd_Arrest_ut.csv'
-            out_pic_name = "/Ut_CJS.png"
+        elif "OArrest_ut" in filename:
+            csv_filename = '/Base_MonthEnd_OArrest_ut.csv'
+            out_pic_name = "/Ut_OCJS.png"
             name = "Required Opioid-Related \n CJS Capacity over time"
             check = True
             ylabel = "Number of Individuals in the CJS \n due to an Opioid-Related Arrest"
+        elif "anyArrest_ut" in filename:
+            csv_filename = '/Base_MonthEnd_anyArrest_ut.csv'
+            out_pic_name = "/Ut_anyCJS.png"
+            name = "Required CJS Capacity \n for all indidividals that use opioids over time"
+            check = True
+            ylabel = "Number of Individuals in the CJS \n due to an Arrest"
         elif "Hosp_ut" in filename:
             csv_filename = '/Base_MonthEnd_Hosp_ut.csv'
             out_pic_name = "/Ut_HOSP.png"
@@ -312,12 +331,12 @@ for policy in ["Joint"]:#:["AD", "OD", "CM", "Joint"]:
             name = "Required Capacity of OUD \n Treatment over time"
             ylabel = "Number of Individuals \n in OUD Treatment"
             check = True
-        elif "y_Indv_Arrest" in filename:
-            csv_filename = '/Base_Yearly_Indv_Arrests.csv'
+        elif "y_Indv_OArrest" in filename:
+            csv_filename = '/Base_Yearly_Indv_OArrests.csv'
             out_pic_name = "/Per_person_Arrest.png"
             name = "Opioid-related Re-Arrest rate per Year"
             check = False
-            secondary_csv = '/Base_Yearly_Arrests.csv'
+            secondary_csv = '/Base_Yearly_OArrests.csv'
             ylabel = "Opioid-related Re-Arrest Rate (%)"
         elif "y_Indv_Hosp" in filename:
             csv_filename = '/Base_Yearly_Indv_Hosp.csv'
@@ -342,14 +361,14 @@ for policy in ["Joint"]:#:["AD", "OD", "CM", "Joint"]:
             check = False
             ylabel = "Opioid uses Re-start Rate (%)"
         else:
-            continue
+            continue #LEAVE for Table
         df_baseline = pd.read_csv(r''+Baseline_Folder+ csv_filename )
         df_baseline = df_baseline[0:n]
         df_baseline = df_baseline.T
         save_as = str(Baseline_Output_Folder) + out_pic_name
         if check == False:
             if secondary_csv == "":
-                #continue
+                continue
                 ''' Plotting the Yearly total CIs'''
                 base_mu, base_max, base_min = dict_mean(df_baseline[1:], num_years)
                 base_sd = dict_sd(df_baseline[1:],num_years)        
@@ -402,7 +421,7 @@ for policy in ["Joint"]:#:["AD", "OD", "CM", "Joint"]:
                 plt.close()
         
             else:
-                continue
+                #continue
                 if third_csv != "":
                     #continue
                     new_year_list = []
@@ -435,21 +454,19 @@ for policy in ["Joint"]:#:["AD", "OD", "CM", "Joint"]:
                     fig, ax = plt.subplots(dpi=1200)
                     ax.errorbar(new_year_list[warmup:],base_mu[warmup:],errbase[warmup:], elinewidth = 1, capsize=10, color = 'black', alpha=.9)
                     # add to table lists
-                    # scen_list.append(Output_Scenario_TableOrder[0])
-                    # output_list.append(csv_filename)
                     for i, year in enumerate(year_list):
                         table_list.append([Output_Scenario[0], csv_filename, year, base_mu[year - start_year], errbase[year - start_year]/z_score, base_max[year - start_year], base_min[year - start_year], "" ,""])
-                        # year_mu_list[i].append(base_mu[year - start_year])
-                        # year_err_list[i].append(errbase[year - start_year]/z_score)
-                        # year_max_list[i].append(base_max[year - start_year])
-                        # year_min_list[i].append(base_min[year - start_year])
-                        # year_diffp_list[i].append("")
-                        # year_diffsig_list[i].append("")
-                    for idx,Comparison_Folder in enumerate(All_RESULTS_folder_list):
-                        df_comparison_p1 = pd.read_csv(r''+Comparison_Folder+ csv_filename)
+                    for idx,Comparison_Folder in enumerate(All_RESULTS_folder_list): #have to change t
+                        if csv_filename == '/Base_Yearly_Indv_OArrests.csv':
+                            csv_filename_new ='/Base_Yearly_Indv_OCrimes.csv'
+                            secondary_csv_new = '/Base_Yearly_OCrimes.csv'
+                        else:
+                            csv_filename_new = csv_filename
+                            secondary_csv_new  = secondary_csv
+                        df_comparison_p1 = pd.read_csv(r''+Comparison_Folder+ csv_filename_new)
                         df_comparison_p1 = df_comparison_p1[0:n]
                         df_comparison_p1 = df_comparison_p1.T
-                        df_comparison_p2 = pd.read_csv(r''+Comparison_Folder+ secondary_csv)
+                        df_comparison_p2 = pd.read_csv(r''+Comparison_Folder+ secondary_csv_new)
                         df_comparison_p2 = df_comparison_p2[0:n]
                         df_comparison_p2 = df_comparison_p2.T
                         df_comparison = ((df_comparison_p2 / df_comparison_p1)-1)*100
@@ -458,22 +475,14 @@ for policy in ["Joint"]:#:["AD", "OD", "CM", "Joint"]:
                         errCOMP = (comp_sd/ np.sqrt(n_runs))*z_score #normal mean confidence intervals
                         df_diff = dict_diff(df_comparison[1:],df_baseline[1:],num_years)
                         # add to table lists
-                        # scen_list.append(Output_Scenario_TableOrder[ScenOrder_files_to_table[idx]])
-                        # output_list.append(csv_filename)
                         for i, year in enumerate(year_list):
-                            table_list.append([Output_Scenario[idx+1], csv_filename, year, comp_mu[year - start_year], errCOMP[year - start_year]/z_score, comp_max[year - start_year], comp_min[year - start_year], df_diff.iloc[4,year - start_year] ,df_diff.iloc[5,year - start_year]])
-                            # year_mu_list[i].append(comp_mu[year - start_year])
-                            # year_err_list[i].append(errCOMP[year - start_year]/ z_score)
-                            # year_max_list[i].append(comp_min[year - start_year])
-                            # year_min_list[i].append(comp_max[year - start_year])
-                            # year_diffp_list[i].append(df_diff.iloc[4,year - start_year])
-                            # year_diffsig_list[i].append(df_diff.iloc[5,year - start_year])
+                            table_list.append([Output_Scenario[idx+1], csv_filename, year, comp_mu[year - start_year], errCOMP[year - start_year]/z_score, comp_max[year - start_year], comp_min[year - start_year], df_diff.iloc[4,year - (start_year+9)] ,df_diff.iloc[5,year - (start_year+9)],df_diff.iloc[3,year - (start_year+9)],df_diff.iloc[2,year - (start_year+9)],df_diff.iloc[1,year -(start_year+9)],df_diff.iloc[0,year - (start_year+9)]])
                         #add to graph
                         if Comparison_Folder in comparison_folder_list:
                             scen_idx =comparison_folder_list.index(Comparison_Folder)
                             ax.errorbar(new_year_list[warmup:],comp_mu[warmup:],errCOMP[warmup:], elinewidth = 1, capsize=10, color = color_style[scen_idx],ls=ls_style[scen_idx], alpha=.9)                       
                     ''' Final plot changes '''
-                    #continue
+                    continue
                     ax.set_xlabel('Year')
                     ax.set_xticks(np.arange(2010, 2035, step=5),rotation=45)
                     #ax.set_yticks(range(0,10,2))
@@ -503,7 +512,7 @@ for policy in ["Joint"]:#:["AD", "OD", "CM", "Joint"]:
             ''' Plot each Required Capacities '''
             continue
             if baseline_histcreated == False:
-                # continue
+                continue
                 base_mu, base_max, base_min = dict_mean(df_baseline[1:], num_years*months_in_year)
                 base_sd = dict_sd(df_baseline[1:],num_years*12)
                 ''' Plot Baseline Required Capacities '''
@@ -602,9 +611,9 @@ for policy in ["Joint"]:#:["AD", "OD", "CM", "Joint"]:
             fig_leg.savefig(save_as +'_legend.png')
             plt.close()       
 
-'''Average Person Rates Table 
+#'''Average Person Rates Table 
 
-table_df = pd.DataFrame(table_list)
+table_df = pd.DataFrame(table_list, columns=["Scenario", "file","year", "mean", "se", "max", "min", "diff latex" ,"dif sig?","diff p value","diff t score", "diff std", "diff mean"])
 
 
 table = Avg_PerPersonRatesTable(table_df, policy_dict, year_list, Output_Scenario_TableOrder)

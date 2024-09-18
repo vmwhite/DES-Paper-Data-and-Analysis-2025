@@ -1,10 +1,15 @@
-﻿Year,Care Type,Total Individuals
-2014,County-Authorized Treatment,332
-2014,Medicaid,1442
-2015,County-Authorized Treatment,294
-2015,Medicaid,1647
-2016,County-Authorized Treatment,293
-2016,Medicaid,1686
-2017,County-Authorized Treatment,233
-2017,Medicaid,1793
-2018,County-Authorized Treatment,210
+﻿Year,Care Type,Total Individuals - Dane,Total Individuals - Wisconsin
+2014,County-Authorized Treatment,332,
+2014,Medicaid,1442,
+2015,County-Authorized Treatment,294,
+2015,Medicaid,1647,
+2016,County-Authorized Treatment,293,2759
+2016,Medicaid,1686,28364
+2017,County-Authorized Treatment,233,2832
+2017,Medicaid,1793,30173
+2018,County-Authorized Treatment,209,2875
+2018,Medicaid,1924,31224
+2019,County-Authorized Treatment,178,2905
+2019,Medicaid,1976,31613
+2020,County-Authorized Treatment,92,2334
+2020,Medicaid,,
