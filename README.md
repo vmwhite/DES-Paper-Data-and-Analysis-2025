@@ -39,12 +39,12 @@ This folder contains various Python files used to conduct supplemental analysis 
 ### In "Policy_Comparison" folder:
 - The "Correlation_btwn_Policies.py" file was used to create the policy correlation table and analysis in Section 6 of [1].
 ### In "Replication_Analysis" folder:
-- The "EstimatingNumberOfScenatios.py" file was used in supporting Appendix B for [1].
-## In "Sensitivity_Analysis" folder:
+- The "EstimatingNumberOfScenatios.py" file was used to support Appendix B for [1].
+### In "Sensitivity_Analysis" folder:
 - The "GenerateSensitivityMatrix.py" file was used to sample Sobol Sequences for Appendix C in [1]
 - The "Simulation_DC_OpioidPolicing_Sensitivity.py" file calls "GenerateSensitivityMatrix.py" and conducts the sensitivity analysis used in Appendix C for [1]
 - The "Combine_Sens_Outputs.py" file compiles the raw sensitivity analysis outputs from "Sensitivity_Analysis/Simulation_DC_OpioidPolicing_Sensitivity.py" to .csv files
 - The "Base_TotalYearlyEvents.py.py" file compiles the raw base model outputs from "Simulation_DC_OpioidPolicing_MARI_ED_and_CM.py" to .csv files
 - The "RegressionAnalysis.py" file conducts the normality, scatterplots, PRCC, and OLS analyses for Appendix C in [1]
-- The "Sens_Tables.py" file is supportive Python code called by "Sensitivity_Analysis/RegressionAnalysis.py" and contains the code to reformat data frames to latex for tables A2 and A3.
+- The "Sens_Tables.py" file is a supportive Python code called "Sensitivity_Analysis/RegressionAnalysis.py" and contains the code to reformat data frames to latex for tables A2 and A3.
 
