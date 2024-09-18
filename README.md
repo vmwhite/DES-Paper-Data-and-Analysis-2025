@@ -18,9 +18,9 @@ This file contains the list of scenarios tested. Where:
 - The second column represents the percentage of the Overdose Diversion policy implementation
 - The third column represents the percentage of the Re-entry Case Management implementation
 
-## The "Simulation_OUD_Treatment_Policy_Sensitivity.py" file
+## The "Simulation_OUD_Treatment_Policy_main.py" file
 This is the Python code for the simulation. When you run the file, you enter the following four arguments:
-- The 'Simulation_OUD_Treatment_Policy_Sensitivity.py' file
+- The 'Simulation_OUD_Treatment_Policy_main.py' file
 - The number of runs you wish to conduct
 - The length in years you want the simulation to run (this does not include the hard-coded 5-year warm-up period)
 - the line number in the "AllScenarioMatrix.csv" that corresponds to the exact scenario you wish to run
