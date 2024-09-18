@@ -6,8 +6,8 @@ This repository is the supportive code and data for the paper:
 
 ## The "Data_Sources" folder
 This folder obtains the collected raw data used to estimate the input parameters for the Dane County case study. Note that most of the data was converted from the original .xlsx files to .csv for faster loading into Python. 
-- The file "LNdist_DoubleCheck.xlsx" contains any calculations made from the original data sources and an overall summary
-- The file "NSDUH - Drug Initiation Data/InitationTables.xlsx" shows the calculations to estimate Dane County Opioid Use Prevalence and Initiation.
+- The file **"LNdist_DoubleCheck.xlsx"** contains any calculations made from the original data sources and an overall summary
+- The file **"NSDUH - Drug Initiation Data/InitationTables.xlsx"** shows the calculations to estimate Dane County Opioid Use Prevalence and Initiation.
 
 ## The "Simulation_Functions/DataCleanngDCSim_NEW.py" file
 This is Python code used to clean the raw data in the "DataSources" folder.
@@ -27,20 +27,24 @@ This is the Python code for the simulation. When you run the file, you enter the
 
 ## The "Post_Processing" folder
 This folder contains various Python files used to process the outputs of "Simulation_DC_OpioidPolicing_MARI_ED_and_CM.py" to the formats presented in [1] Specifically: 
-- The"Compile_RawResults.py" file is Python Code that converts the raw output of the "Simulation_DC_OpioidPolicing_MARI_ED_and_CM.py" to .csv files.
-- The "Prediction_interval_Calibration_Figs.py" file is Python code used to create the .png files used in Figure 2 for [1]
+- The **"Compile_RawResults.py"** file is Python Code that converts the raw output of the "Simulation_DC_OpioidPolicing_MARI_ED_and_CM.py" to .csv files.
+- The **"Prediction_interval_Calibration_Figs.py"** file is Python code used to create the .png files used in Figure 2 for [1]
 - The "Results_Table.py" file is the Python code to create Table 4 for [1] and outputs the latex table as "CombinedResults.txt"
-- The "Scenario_Comparison.py" file to create graphs in .png and tables in .txt format used in Table 5, Figure 3, and Appendix C for [1]
-- The "Graphing_Functions.py" file is supportive Python code called by "Scenario_Comparison.py" and contains matplotlib formatted graphs.
-- The "Table_Functions.py" file is supportive Python code called by "Scenario_Comparison.py" and contains the code to reformat data frames to latex.
+- The **"Scenario_Comparison.py"** file to create graphs in .png and tables in .txt format used in Table 5, Figure 3, and Appendix C for [1]
+- The **"Graphing_Functions.py"** file is supportive Python code called by "Scenario_Comparison.py" and contains matplotlib formatted graphs.
+- The **"Table_Functions.py"** file is supportive Python code called by "Scenario_Comparison.py" and contains the code to reformat data frames to latex.
 
 ## The "Appendix_Items" folder
 This folder contains various Python files used to conduct supplemental analysis reported in the Appendices in [1]. Specifically: 
-- The "Replication_Analysis/EstimatingNumberOfScenatios.py" file was used in supporting Appendix B for [1]
-- The "Sensitivity_Analysis/GenerateSensitivityMatrix.py" file was used to sample Sobol Sequences for Appendix C in [1]
-- The "Sensitivity_Analysis/Simulation_DC_OpioidPolicing_Sensitivity.py" file calls "Sensitivity_Analysis/GenerateSensitivityMatrix.py" and conducts the sensitivity analysis used in Appendix C for [1]
-- The "Sensitivity_Analysis/Combine_Sens_Outputs.py" file compiles the raw sensitivity analysis outputs from "Sensitivity_Analysis/Simulation_DC_OpioidPolicing_Sensitivity.py" to .csv files
-- The "Sensitivity_Analysis/Base_TotalYearlyEvents.py.py" file compiles the raw base model outputs from "Simulation_DC_OpioidPolicing_MARI_ED_and_CM.py" to .csv files
-- The "Sensitivity_Analysis/RegressionAnalysis.py" file conducts the normality, scatterplots, PRCC, and OLS analyses for Appendix C in [1]
-- The "Sensitivity_Analysis/Sens_Tables.py" file is supportive Python code called by "Sensitivity_Analysis/RegressionAnalysis.py" and contains the code to reformat data frames to latex for tables A2 and A3.
+### In "Policy_Comparison" folder:
+- The "Correlation_btwn_Policies.py" file was used to create the policy correlation table and analysis in Section 6 of [1].
+### In "Replication_Analysis" folder:
+- The "EstimatingNumberOfScenatios.py" file was used in supporting Appendix B for [1].
+## In "Sensitivity_Analysis" folder:
+- The "GenerateSensitivityMatrix.py" file was used to sample Sobol Sequences for Appendix C in [1]
+- The "Simulation_DC_OpioidPolicing_Sensitivity.py" file calls "GenerateSensitivityMatrix.py" and conducts the sensitivity analysis used in Appendix C for [1]
+- The "Combine_Sens_Outputs.py" file compiles the raw sensitivity analysis outputs from "Sensitivity_Analysis/Simulation_DC_OpioidPolicing_Sensitivity.py" to .csv files
+- The "Base_TotalYearlyEvents.py.py" file compiles the raw base model outputs from "Simulation_DC_OpioidPolicing_MARI_ED_and_CM.py" to .csv files
+- The "RegressionAnalysis.py" file conducts the normality, scatterplots, PRCC, and OLS analyses for Appendix C in [1]
+- The "Sens_Tables.py" file is supportive Python code called by "Sensitivity_Analysis/RegressionAnalysis.py" and contains the code to reformat data frames to latex for tables A2 and A3.
 
