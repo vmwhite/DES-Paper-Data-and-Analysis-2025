@@ -81,10 +81,14 @@ def sim_params(warmup):
     # LNmean_iadays, LNsig_iadays =  ln_est(iadays_est["l"],iadays_est["m"],iadays_est["q"],iadays_est["x"])
 
 
-    #ARC 7 - now calcualted based on entering age. adjust enter age probabilities here
+    #ARC 7 - now calcualted based on entering age. adjust enter age probabilities here - as of 2/10/25 second major revision
+    dup_prev_age_mean, dup_prev_age_sig = ln_est(12,32,.933,65)
+    dup_init_age_mean, dup_init_age_sig = ln_est(12,21.5,.403,26)
+    '''
+    #Old
     dup_prev_age_mean, dup_prev_age_sig = ln_est(12,30,.75,42.4)
     dup_init_age_mean, dup_init_age_sig = ln_est(12,25,.75,37.9)
-
+    '''
     #Arc 8 - NON opioid related crimes - goes from active and inactive to CJS. If from active use then eligible for CM
     #Baseline 5.4.24
     # nonOarrestdays_est = {"l":0, "m":9, "q":0.48254, "x":2374.125} #made treatments too high and O-crime a little low?
