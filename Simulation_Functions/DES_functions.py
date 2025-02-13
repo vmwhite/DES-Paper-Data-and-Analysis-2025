@@ -1,5 +1,7 @@
 import math
 import random
+import numpy as np
+from lifelines import KaplanMeierFitter
 ######################################################## Setting Parameters #################################################################
 #Note: Triangular funciton is (low, high, mode)
 def arrival_time(arrival_gen, lam_user_arrival):
@@ -48,33 +50,57 @@ def hosp_time(hosp_gen, params):
     # time = max_hospdays*hosp_gen.betavariate(BetaA1_hospdays,BetaA2_hospdays)
     return time
 def alldeath_time(loopdone, alldeath_gen, params):
+    ##### Survival Funciton ################
     dup_prev_age_mean = params["dup_prev_age_mean"]
     dup_prev_age_sig = params["dup_prev_age_sig"]
     dup_init_age_mean = params["dup_init_age_mean"]
     dup_init_age_sig = params["dup_init_age_sig"]
-    #Based on Lewer 2020 age histogram ofdrug using cohort in australia
-    if loopdone == False: #prevalence age distribtuion
-        age = 12+ alldeath_gen.lognormvariate(dup_prev_age_mean,dup_prev_age_sig)
-    else: #initiation age distribtuion
-        age = 12 + alldeath_gen.lognormvariate(dup_init_age_mean, dup_init_age_sig)
-    if age >101:
-        age = 100
-    index_age = math.floor((age/5)-2)
-    deathAge_ranges = [x for x in range(math.floor(age/5)*5,101,5)]
-    #based on adjusted death rates for non-drug abuse 1999-2001
-    num_surviving = [99098,99000,98677,98245,97830,97330,96620,95556,93956,91626,88047,82727,75263,64974,51153,34705,18602,6921,1489]
-    num_die= [98, 323, 432, 414,500,710,1065,1600,2330,3579,5320,7464,10289,13821,16449,16103,11681,5432,1489]
-    LIFE_exp_probs = []
-    for x in range(index_age, len(num_surviving)):
-        LIFE_exp_probs.append(num_die[x]/num_surviving[index_age])
-    rand_deathAgegroup = alldeath_gen.choices(deathAge_ranges, weights=LIFE_exp_probs, k=1)
-    rand_deathAgegroup= float(rand_deathAgegroup[0])
-    if age > rand_deathAgegroup:
-        time = alldeath_gen.uniform(age*365.25,(rand_deathAgegroup+5)*365.25) - age*365.25
-    else:
-        time = alldeath_gen.uniform(rand_deathAgegroup*365.25,(rand_deathAgegroup+5)*365.25) - age*365.25
-    return time, age
+    valid_age = False
+    while valid_age == False: # truncates age by resampling until < 105 years old. 
+        if loopdone == False: #prevalence age distribtuion
+            current_age = 12+ alldeath_gen.lognormvariate(dup_prev_age_mean,dup_prev_age_sig)
+        else: #initiation age distribtuion
+            current_age = 12 + alldeath_gen.lognormvariate(dup_init_age_mean, dup_init_age_sig)
+        if current_age < 105: valid_age = True
+    #Survival Function: based on adjusted death rates for non-drug abuse 1999-2001
+    #See "DataSources\Wisc DHS - Life Expectancy Data\life-expectancy-tables.xlsx" for details
+    age_interval_upper_bound= [x for x in range(15,106,5)]
+    deaths_in_age_interval = [98, 323, 432, 414,500,710,1065,1600,2330,3579,5320,7464,10289,13821,16449,16103,11681,5432,1489] 
 
+    # Fit the model
+    kmf = KaplanMeierFitter()
+    kmf.fit(durations=age_interval_upper_bound, event_observed=deaths_in_age_interval)
+    expected_death_age = expected_survival_age(current_age, kmf)
+    time = (expected_death_age - current_age)* 365.25 #convert from years to days
+    return time, current_age
+
+
+def conditional_survival(current_age, kmf):
+    # Extract survival probabilities and time points
+    survival_times = kmf.survival_function_.index.values
+    survival_probs = kmf.survival_function_['KM_estimate'].values
+
+    # Find the survival probability at current age
+    survival_at_t0 = np.interp(current_age, survival_times, survival_probs)
+
+    # Filter times and probabilities for t >= t0
+    valid_times = survival_times[survival_times >= current_age]
+    valid_probs = survival_probs[survival_times >= current_age]
+
+    # Conditional survival probabilities
+    conditional_probs = valid_probs / survival_at_t0
+    return valid_times, conditional_probs
+
+def expected_survival_age(current_age, kmf):
+    # Get conditional survival probabilities
+    valid_times, conditional_probs = conditional_survival(current_age, kmf)
+
+    # Compute expected survival time as a sum
+    time_differences = np.diff(valid_times, prepend=current_age)  # Time intervals
+    expected_additional_time = np.sum(conditional_probs * time_differences)
+
+    # Add the current age to get the expected survival age
+    return current_age + expected_additional_time
 
 def inactive_time(inactive_gen, params): 
     LNmean_iadays = params["LNmean_iadays"]
