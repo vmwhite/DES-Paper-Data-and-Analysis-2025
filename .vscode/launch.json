@@ -1,0 +1,28 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Current File",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",  // Runs the currently opened file
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "cwd": "${workspaceFolder}",
+            "args": ["2", "1", "0"] // number of replications, number of years for run length, scenario row listed in AllScenarioMatrix.csv. All three must be integers. Results for White and Albert (2025) were set to [600, 20, x], where x was 0 through 18.
+        },
+        {
+            "name": "Python: Run Sensitivity Analysis",
+            "type": "python",
+            "request": "launch",
+            "module": "Appendix_Items.Sensitvity_Analysis.Simulation_OUD_Treatment_Policy_Sensitivity",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "cwd": "${workspaceFolder}",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            },
+            "args": ["2", "20", "0"] // number of replications, number of years for run length, sensitvity matrix row. All three must be integers. Results for White and Albert (2025) were set to [3, 20, y], wehre y was between 0 and 1024.
+        }
+    ]
+}
