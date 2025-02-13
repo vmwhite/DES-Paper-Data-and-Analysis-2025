@@ -824,22 +824,22 @@ if __name__ == '__main__':
     params["lam_user_arrival"] = matrix[process][9]
     params["LNmean_deathdays"] = [matrix[process][10],matrix[process][12]]
     params["LNsigma_deathdays"] = [matrix[process][11],matrix[process][13]]
-    params["ODdeathdays_est"] = np.NaN
+    params["ODdeathdays_est"] = np.nan
     params["LNmean_hospdays"] = matrix[process][14]
     params["LNsigma_hospdays"] = matrix[process][15]
-    params["hospdays_est"] = np.NaN
+    params["hospdays_est"] = np.nan
     params["LNmean_Oarrestdays"] = matrix[process][16]
     params["LNsigma_Oarrestdays"] = matrix[process][17]
-    params["Oarrestdays_est"] = np.NaN
+    params["Oarrestdays_est"] = np.nan
     params["LNmean_treatdays"] = matrix[process][18]
     params["LNsigma_treatdays"] = matrix[process][19]
-    params["treatdays_est"] = np.NaN
+    params["treatdays_est"] = np.nan
     params["LNmean_iadays"] = matrix[process][20]
     params["LNsig_iadays"] = matrix[process][21]
-    params["iadays_est"] = np.NaN
+    params["iadays_est"] = np.nan
     params["LNmean_nonOarrestdays"] = matrix[process][22]
     params["LNsigma_nonOarrestdays"] = matrix[process][23]
-    params["nonOarrestdays_est"] = np.NaN
+    params["nonOarrestdays_est"] = np.nan
     #Probability following hospital encounter: arrest is 0.01, deat
     # h is 0.0318, treatment is between (baseline:0.2227, max:0.9582)
     arrest_per = matrix[process][24]
@@ -866,13 +866,13 @@ if __name__ == '__main__':
     params["LNsig_hosprel"] = matrix[process][38]
     params["LNmean_iarel"] = matrix[process][39]
     params["LNsig_iarel"] = matrix[process][40]
-    params["hospservice_est"] = np.NaN
-    params["crimeservice_est"] = np.NaN
-    params["treatservice_est"] = np.NaN 
-    params["crimerel_est"] = np.NaN
-    params["treatrel_est"] = np.NaN
-    params["hosprel_est"] = np.NaN
-    params["iarel_est"] = np.NaN
+    params["hospservice_est"] = np.nan
+    params["crimeservice_est"] = np.nan
+    params["treatservice_est"] = np.nan 
+    params["crimerel_est"] = np.nan
+    params["treatrel_est"] = np.nan
+    params["hosprel_est"] = np.nan
+    params["iarel_est"] = np.nan
     ''''''
     params["str_MatrixVal"] = str_MatrixVal
     params["HE_thres_baseline"] = hospital_encounter_thres_base
