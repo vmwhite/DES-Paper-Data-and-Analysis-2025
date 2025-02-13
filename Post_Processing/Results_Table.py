@@ -61,8 +61,8 @@ n = 2
 df_Per_Person_Yearly_Costs = {
     'Opioid-Related Death': [11548462],
     'Opioid-Related Arrests, non-Diverted': [55726],
-    'Hospital Encounters': [20077],
-    'Treatment': [1812],
+    'Hospital Encounters': [12051],
+    'Treatment': [8224],
     'Active Use': [34106],
     'Inactive_State': [0],
 }
