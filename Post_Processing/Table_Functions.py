@@ -31,21 +31,21 @@ def add_top_column(df, idx,  Output_title):
 
 def latex_row(df_name, row):
     backslash_char = "\\"
-    if df_name == "cost":
+    if df_name == "cost" :
         if row['p_val'] < 0.001:
                 value = backslash_char +'bf{' + f"{round((row['Mean_Value'])/1000000, 0):,}" + '$' + backslash_char+'pm$ ' + str(round((row['Std']/np.sqrt(600))/1000000, 2)) +'$^{**}$ ('  + str(row['cost_p_value']) +')}'
         elif row['SignificantCost?'] == 'Yes':
             value = backslash_char +'bf{' + f"{round((row['Mean_Value'])/1000000, 0):,}" + '$' + backslash_char+'pm$ ' + str(round((row['Std']/np.sqrt(600))/1000000, 2)) +'$^*$ ('  + str(row['cost_p_value']) +')}'
-        elif (row['p_val']) == np.NaN:
-            f"{round((row['Mean_Value'])/1000000, 0):,}"+ ' $' + backslash_char+'pm$ ' + str((round(row['Std']/np.sqrt(600)/1000000, 2)))
+        elif (row['p_val']) == np.nan:
+            value = f"{round((row['Mean_Value'])/1000000, 0):,}"+ ' $' + backslash_char+'pm$ ' + str((round(row['Std']/np.sqrt(600)/1000000, 2)))
         else:
-            f"{round((row['Mean_Value'])/1000000, 0):,}" + ' $' + backslash_char+'pm$ ' + str((round(row['Std']/np.sqrt(600)/1000000, 2))) +'('  + str(row['cost_p_value']) +')'
+            value = f"{round((row['Mean_Value'])/1000000, 0):,}" + ' $' + backslash_char+'pm$ ' + str((round(row['Std']/np.sqrt(600)/1000000, 2))) +'('  + str(row['cost_p_value']) +')'
     elif df_name == "diff":
         if row['p_val'] < 0.001:
                 value = '$^{**}$ ('  + str(row['p_value']) +')}'
         elif row['Significant_p_val?'] == 'Yes':
             value = '$^*$ ('  + str(row['p_value']) +')}'
-        elif (row['p_val']) == np.NaN:
+        elif (row['p_val']) == np.nan:
             value = ""
         else:
             value = '('  + str(row['p_value']) +')'
@@ -57,7 +57,7 @@ def latex_row(df_name, row):
                 value = backslash_char +'bf{' + str(round((row['mean']), 2)) + '$' + backslash_char+'pm$ ' + str(round(row['se'], 2)) 
         elif row['Significant_p_val?'] == 'Yes':
             value = backslash_char +'bf{' + str(round((row['mean']), 2)) + '$' + backslash_char+'pm$ ' + str(round(row['se'], 2))
-        elif (row['p_val']) == np.NaN:
+        elif (row['p_val']) == np.nan:
             value = str(round(row['mean'], 2)) + ' $' + backslash_char+'pm$ ' + str(round(row['se'], 2))
         else:
             value = str(round(row['mean'], 2)) + ' $' + backslash_char+'pm$ ' + str((round(row['se'], 2)))
@@ -142,6 +142,7 @@ def Avg_PerPersonRatesTable(df_table, policy_dict, year_list, Output_Scenario_Ta
     table += f"\n\\begin{{sidewaystable}}[htbp]"
     table += f"\n\centering"
     table +=f"\n\caption{{Simulated mean $\pm$ standard error (p-value) of Year 2032 opioid-related re-arrest, hospitalization, and treatment re-start rates for all scenarios}}"
+
     table +=f"\n\label{{tab:perPerson_Results}}"
     table +=f"\n\\resizebox{{\\textwidth}}{{!}}{{"
     table +=f"\n\\begin{{tabular}}{{|c|"
@@ -195,7 +196,7 @@ def Avg_PerPersonRatesTable(df_table, policy_dict, year_list, Output_Scenario_Ta
     return table
 
 ######### Policy regression / comparison table ###########################################################################################
-def Policy_RegressionTable(df_table, policy_dict, output_list, index_to_year,year_list, Output_Scenario_TableOrder):
+def Policy_RegressionTable(df_table, policy_dict, output_list, index_to_year,year_list):
     backslash_char = "\\"
     table = f"{{\spacingset{{1.5}}"
     table += f"\n\\begin{{table}}[htbp]"
@@ -207,7 +208,7 @@ def Policy_RegressionTable(df_table, policy_dict, output_list, index_to_year,yea
     table +=f"{{|c|c|c|c|c|c|}}"
     table +=f"\n\hline"
     table +=f"\n\multicolumn{{1}}{{|c|}}{{\multirow{{2}}{{*}}{{Year}}}} & \multicolumn{{1}}{{c|}}{{\multirow{{2}}{{*}}{{Model Output}}}} & \multicolumn{{{4}}}{{c|}}{{Regression Coefficients (p-value)}}\\\\  \cline{{3-6}}  "
-    table +=f"\n & & \multicolumn{{1}}{{c|}}{{Intercept (p-value)}} & \multicolumn{{1}}{{c|}}{{OD (p-value)}} & \multicolumn{{1}}{{c|}}{{AD (p-value)}}  & \multicolumn{{1}}{{c|}}{{CM (p-value)}}  \\\\  "
+    table +=f"\n & & \multicolumn{{1}}{{c|}}{{Intercept (p-value)}} & \multicolumn{{1}}{{c|}}{{AD (p-value)}} & \multicolumn{{1}}{{c|}}{{OD (p-value)}}  & \multicolumn{{1}}{{c|}}{{CM (p-value)}}  \\\\  "
     table += f"\hline \hline"
     for idx in range(0,len(df_table)):
         try:

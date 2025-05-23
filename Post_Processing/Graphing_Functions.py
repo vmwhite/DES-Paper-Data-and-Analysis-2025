@@ -127,7 +127,14 @@ def pi_graph(Folder, sim_avg, sim_max, sim_min, sim_sd, e_year, e_lower, e_mean,
     # print(errED)
     new_year_list = []
     e_year = e_year.astype('int64')
+    e_year = e_year.to_frame()  # If it's a single-column Series
     e_year = e_year[e_year['Year'] < 2018]
+    valid_indices = e_year.index  # Save the indices of the filtered values
+
+    # Use the same indices to filter the other arrays
+    e_mean = e_mean.loc[valid_indices]
+    errED = errED.loc[valid_indices]
+    
     for year in range(start_year, start_year+num_years): 
         new_year_list.append(int(year))
     plt.errorbar(e_year,e_mean, errED, elinewidth = 3,  capsize=14, color="gray",ls="-.", linewidth= 5)

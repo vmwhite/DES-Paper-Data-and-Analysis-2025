@@ -6,7 +6,7 @@ import os
 current_dir = os.path.dirname(os.path.abspath(__file__))
 
 # Navigate to the parallel folder
-parallel_folder = os.path.join(current_dir, '..', 'Simulation_DC_OpioidPolicing')
+parallel_folder = os.path.join(current_dir, '..')
 
 # Add the parallel folder to the module search path
 sys.path.append(parallel_folder)
@@ -33,7 +33,7 @@ new_year_list = []
 for year in range(start_year, start_year+num_years): 
     new_year_list.append(int(year))
 
-Baseline_Folder =r'Results_0Process_ED2RVal_22270_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_051724_203606\summaries'+str(n)
+Baseline_Folder =r'Revison2_Results\Results_0Process_ED2RVal_22270_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_021425_082048\summaries'+str(n)
 
 csv_files = ['\Base_Yearly_Arrivals.csv','\Base_Yearly_ODeaths.csv','\Base_Yearly_OArrests.csv', '\Base_Yearly_Indv_Treats.csv', '\Base_Yearly_Hosp.csv', '\Base_Yearly_Prevalence.csv']
 comp_inputs = [ inputs.df_initiation, inputs.df_DCdeaths, inputs.df_Yarrests, inputs.df_treat, inputs.df_HE, inputs.df_prev]
@@ -44,7 +44,7 @@ for idx, item in enumerate(comp_inputs):
     df= df[0:n]
     df= df.T[1:num_years+1]
     dict_mu, dict_max, dict_min = dict_mean(df, num_years)
-    if item == inputs.df_prev:
+    if item.columns[1] == inputs.df_prev.columns[1]:
         pi_graph(Baseline_Folder,dict_mu, dict_max, dict_min, dict_sd(df,num_years),inputs.df_prev["Year"], inputs.df_prev["Dane County use estimate (number of people) LOWER CI"].astype(float),inputs.df_prev["Dane County use estimate (number of people)"].astype(float),"Prevalence", start_year, num_years, warmup, n_runs)
     else:
         pi_graph_point(Baseline_Folder,dict_mu, dict_max, dict_min, dict_sd(df,num_years),item,ecol_lab[idx], x_lab[idx], start_year, num_years, warmup, n)

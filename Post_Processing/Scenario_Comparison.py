@@ -12,30 +12,30 @@ import statistics as st
 import scipy
 
 ####folders with results
-Baseline_Output_Folder_OG = r'Results_0Process_ED2RVal_22270_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_051724_203606/summaries600'
-Baseline_Folder = r'Results_0Process_ED2RVal_22270_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_051724_203606/summaries600'
+Baseline_Output_Folder_OG = r'Revison2_Results/Results_0Process_ED2RVal_22270_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_021425_082048/summaries600'
+Baseline_Folder = r'Revison2_Results/Results_0Process_ED2RVal_22270_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_021425_082048/summaries600'
 Baseline_file_list = os.listdir(Baseline_Folder)
 color_list = ["gray"]
 
 All_RESULTS_folder_list = [
-r'Results_1Process_ED2RVal_30000_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_051724_194511/summaries600',
-r'Results_2Process_ED2RVal_45000_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_051724_210127/summaries600',
-r'Results_3Process_ED2RVal_60000_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_051724_151544/summaries600',
-r'Results_4Process_ED2RVal_75000_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_051724_201600/summaries600',
-r'Results_5Process_ED2RVal_90000_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_051724_143934/summaries600',
-r'Results_6Process_ED2RVal_22270_MARIVal_20_CMVal_0_Scen_600_Years_25_Time_051724_194618/summaries600',
-r'Results_7Process_ED2RVal_22270_MARIVal_40_CMVal_0_Scen_600_Years_25_Time_051724_143736/summaries600',
-r'Results_8Process_ED2RVal_22270_MARIVal_60_CMVal_0_Scen_600_Years_25_Time_051724_192330/summaries600',
-r'Results_9Process_ED2RVal_22270_MARIVal_80_CMVal_0_Scen_600_Years_25_Time_051724_150123/summaries600',
-r'Results_10Process_ED2RVal_22270_MARIVal_100_CMVal_0_Scen_600_Years_25_Time_051724_141226/summaries600',
-r'Results_11Process_ED2RVal_22270_MARIVal_0_CMVal_20_Scen_600_Years_25_Time_051724_135815/summaries600',
-r'Results_12Process_ED2RVal_22270_MARIVal_0_CMVal_40_Scen_600_Years_25_Time_051724_135714/summaries600',
-r'Results_13Process_ED2RVal_22270_MARIVal_0_CMVal_60_Scen_600_Years_25_Time_051724_140819/summaries600',
-r'Results_14Process_ED2RVal_22270_MARIVal_0_CMVal_80_Scen_600_Years_25_Time_051724_140527/summaries600',
-r'Results_15Process_ED2RVal_22270_MARIVal_0_CMVal_100_Scen_600_Years_25_Time_051724_142528/summaries600',
-r'Results_16Process_ED2RVal_40000_MARIVal_20_CMVal_20_Scen_600_Years_25_Time_051724_150754/summaries600',
-r'Results_17Process_ED2RVal_60000_MARIVal_40_CMVal_40_Scen_600_Years_25_Time_051724_145529/summaries600',
-r'Results_18Process_ED2RVal_80000_MARIVal_60_CMVal_60_Scen_600_Years_25_Time_051724_164846/summaries600']
+r'Revison2_Results/Results_1Process_ED2RVal_30000_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_021525_233701/summaries600',
+r'Revison2_Results/Results_2Process_ED2RVal_45000_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_021525_232627/summaries600',
+r'Revison2_Results/Results_3Process_ED2RVal_60000_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_021525_215713/summaries600',
+r'Revison2_Results/Results_4Process_ED2RVal_75000_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_021525_220748/summaries600',
+r'Revison2_Results/Results_5Process_ED2RVal_90000_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_021525_220209/summaries600',
+r'Revison2_Results/Results_6Process_ED2RVal_22270_MARIVal_20_CMVal_0_Scen_600_Years_25_Time_021625_235105/summaries600',
+r'Revison2_Results/Results_7Process_ED2RVal_22270_MARIVal_40_CMVal_0_Scen_600_Years_25_Time_021725_000103/summaries600',
+r'Revison2_Results/Results_8Process_ED2RVal_22270_MARIVal_60_CMVal_0_Scen_600_Years_25_Time_021625_000057/summaries600',
+r'Revison2_Results/Results_9Process_ED2RVal_22270_MARIVal_80_CMVal_0_Scen_600_Years_25_Time_021525_221139/summaries600',
+r'Revison2_Results/Results_10Process_ED2RVal_22270_MARIVal_100_CMVal_0_Scen_600_Years_25_Time_021525_220800/summaries600',
+r'Revison2_Results/Results_11Process_ED2RVal_22270_MARIVal_0_CMVal_20_Scen_600_Years_25_Time_021525_235255/summaries600',
+r'Revison2_Results/Results_12Process_ED2RVal_22270_MARIVal_0_CMVal_40_Scen_600_Years_25_Time_021625_000513/summaries600',
+r'Revison2_Results/Results_13Process_ED2RVal_22270_MARIVal_0_CMVal_60_Scen_600_Years_25_Time_021625_001310/summaries600',
+r'Revison2_Results/Results_14Process_ED2RVal_22270_MARIVal_0_CMVal_80_Scen_600_Years_25_Time_021525_222241/summaries600',
+r'Revison2_Results/Results_15Process_ED2RVal_22270_MARIVal_0_CMVal_100_Scen_600_Years_25_Time_021525_220331/summaries600',
+r'Revison2_Results/Results_16Process_ED2RVal_40000_MARIVal_20_CMVal_20_Scen_600_Years_25_Time_021525_222753/summaries600',
+r'Revison2_Results/Results_17Process_ED2RVal_60000_MARIVal_40_CMVal_40_Scen_600_Years_25_Time_021525_223933/summaries600',
+r'Revison2_Results/Results_18Process_ED2RVal_80000_MARIVal_60_CMVal_60_Scen_600_Years_25_Time_021625_000906/summaries600']
 
 Output_Scenario = ['Base', 
                    'OD30','OD45','OD60','OD75', 'OD90',
@@ -120,11 +120,11 @@ for policy in ["Joint"]:#:["AD", "OD", "CM", "Joint"]:
     if policy == "AD":
         Baseline_Output_Folder = Baseline_Output_Folder_OG + '/Comparison_MARI'
         comparison_folder_list = [
-        r'Results_6Process_ED2RVal_22270_MARIVal_20_CMVal_0_Scen_600_Years_25_Time_051724_194618/summaries600',
-        r'Results_7Process_ED2RVal_22270_MARIVal_40_CMVal_0_Scen_600_Years_25_Time_051724_143736/summaries600',
-        r'Results_8Process_ED2RVal_22270_MARIVal_60_CMVal_0_Scen_600_Years_25_Time_051724_192330/summaries600',
-        r'Results_9Process_ED2RVal_22270_MARIVal_80_CMVal_0_Scen_600_Years_25_Time_051724_150123/summaries600',
-        r'Results_10Process_ED2RVal_22270_MARIVal_100_CMVal_0_Scen_600_Years_25_Time_051724_141226/summaries600',] 
+        r'Revison2_Results/Results_6Process_ED2RVal_22270_MARIVal_20_CMVal_0_Scen_600_Years_25_Time_021625_235105/summaries600',
+        r'Revison2_Results/Results_7Process_ED2RVal_22270_MARIVal_40_CMVal_0_Scen_600_Years_25_Time_021725_000103/summaries600',
+        r'Revison2_Results/Results_8Process_ED2RVal_22270_MARIVal_60_CMVal_0_Scen_600_Years_25_Time_021625_000057/summaries600',
+        r'Revison2_Results/Results_9Process_ED2RVal_22270_MARIVal_80_CMVal_0_Scen_600_Years_25_Time_021525_221139/summaries600',
+        r'Revison2_Results/Results_10Process_ED2RVal_22270_MARIVal_100_CMVal_0_Scen_600_Years_25_Time_021525_220800/summaries600',] 
         ls_style=[(5, (10, 3)), '--', "-.",  (0, (3, 10, 1, 10, 1, 10)), ':']
         color_style= ['gray', 'red', 'green', 'blue', 'cyan']
         leg_labels = ['Baseline', 'AD 20%', 'AD 40%', 'AD 60%', 'AD 80%', 'AD 100%']
@@ -137,11 +137,11 @@ for policy in ["Joint"]:#:["AD", "OD", "CM", "Joint"]:
     # [ 0.3, 0.45, 0.6, 0.75, 0.9]
     if policy == "OD":
         Baseline_Output_Folder = Baseline_Output_Folder_OG + '/Comparison_ED2R'
-        comparison_folder_list = [r'Results_1Process_ED2RVal_30000_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_051724_194511/summaries600',
-        r'Results_2Process_ED2RVal_45000_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_051724_210127/summaries600',
-        r'Results_3Process_ED2RVal_60000_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_051724_151544/summaries600',
-        r'Results_4Process_ED2RVal_75000_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_051724_201600/summaries600',
-        r'Results_5Process_ED2RVal_90000_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_051724_143934/summaries600']
+        comparison_folder_list = [r'Revison2_Results/Results_1Process_ED2RVal_30000_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_021525_233701/summaries600',
+        r'Revison2_Results/Results_2Process_ED2RVal_45000_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_021525_232627/summaries600',
+        r'Revison2_Results/Results_3Process_ED2RVal_60000_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_021525_215713/summaries600',
+        r'Revison2_Results/Results_4Process_ED2RVal_75000_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_021525_220748/summaries600',
+        r'Revison2_Results/Results_5Process_ED2RVal_90000_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_021525_220209/summaries600']
         color_style= ['gray', 'red', 'green', 'blue', 'cyan']
         ls_style=[(5, (10, 3)), '--', "-.",  ':', (0, (1, 1.5))]
         leg_labels = ['Baseline', 'OD 30%', 'OD 45%', 'OD 60%', 'OD 75%', 'OD 90%']
@@ -166,11 +166,11 @@ for policy in ["Joint"]:#:["AD", "OD", "CM", "Joint"]:
     if policy == "CM":
         Baseline_Output_Folder = Baseline_Output_Folder_OG + '/Comparison_CM'
         comparison_folder_list = [
-        r'Results_11Process_ED2RVal_22270_MARIVal_0_CMVal_20_Scen_600_Years_25_Time_051724_135815/summaries600',
-        r'Results_12Process_ED2RVal_22270_MARIVal_0_CMVal_40_Scen_600_Years_25_Time_051724_135714/summaries600',
-        r'Results_13Process_ED2RVal_22270_MARIVal_0_CMVal_60_Scen_600_Years_25_Time_051724_140819/summaries600',
-        r'Results_14Process_ED2RVal_22270_MARIVal_0_CMVal_80_Scen_600_Years_25_Time_051724_140527/summaries600',
-        r'Results_15Process_ED2RVal_22270_MARIVal_0_CMVal_100_Scen_600_Years_25_Time_051724_142528/summaries600',] 
+        r'Revison2_Results/Results_11Process_ED2RVal_22270_MARIVal_0_CMVal_20_Scen_600_Years_25_Time_021525_235255/summaries600',
+        r'Revison2_Results/Results_12Process_ED2RVal_22270_MARIVal_0_CMVal_40_Scen_600_Years_25_Time_021625_000513/summaries600',
+        r'Revison2_Results/Results_13Process_ED2RVal_22270_MARIVal_0_CMVal_60_Scen_600_Years_25_Time_021625_001310/summaries600',
+        r'Revison2_Results/Results_14Process_ED2RVal_22270_MARIVal_0_CMVal_80_Scen_600_Years_25_Time_021525_222241/summaries600',
+        r'Revison2_Results/Results_15Process_ED2RVal_22270_MARIVal_0_CMVal_100_Scen_600_Years_25_Time_021525_220331/summaries600',] 
         ls_style=[(5, (10, 3)), '--', "-.", ':',(0, (1, 10))]
         color_style= ['gray', 'red', 'green', 'blue', 'cyan']
         leg_labels = ['Baseline', 'CM 20%', 'CM 40%', 'CM 60%', 'CM 80%', 'CM100%']
@@ -180,12 +180,12 @@ for policy in ["Joint"]:#:["AD", "OD", "CM", "Joint"]:
     if policy == "Joint":
         Baseline_Output_Folder = Baseline_Output_Folder_OG + '/Comparison_Joint'
         comparison_folder_list = [
-        r'Results_3Process_ED2RVal_60000_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_051724_151544/summaries600',
-        r'Results_8Process_ED2RVal_22270_MARIVal_60_CMVal_0_Scen_600_Years_25_Time_051724_192330/summaries600',
-        r'Results_13Process_ED2RVal_22270_MARIVal_0_CMVal_60_Scen_600_Years_25_Time_051724_140819/summaries600',
-        r'Results_16Process_ED2RVal_40000_MARIVal_20_CMVal_20_Scen_600_Years_25_Time_051724_150754/summaries600',
-        r'Results_17Process_ED2RVal_60000_MARIVal_40_CMVal_40_Scen_600_Years_25_Time_051724_145529/summaries600',
-        r'Results_18Process_ED2RVal_80000_MARIVal_60_CMVal_60_Scen_600_Years_25_Time_051724_164846/summaries600']
+        r'Revison2_Results/Results_3Process_ED2RVal_60000_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_021525_215713/summaries600',
+        r'Revison2_Results/Results_8Process_ED2RVal_22270_MARIVal_60_CMVal_0_Scen_600_Years_25_Time_021625_000057/summaries600',
+        r'Revison2_Results/Results_13Process_ED2RVal_22270_MARIVal_0_CMVal_60_Scen_600_Years_25_Time_021625_001310/summaries600',
+        r'Revison2_Results/Results_16Process_ED2RVal_40000_MARIVal_20_CMVal_20_Scen_600_Years_25_Time_021525_222753/summaries600',
+        r'Revison2_Results/Results_17Process_ED2RVal_60000_MARIVal_40_CMVal_40_Scen_600_Years_25_Time_021525_223933/summaries600',
+        r'Revison2_Results/Results_18Process_ED2RVal_80000_MARIVal_60_CMVal_60_Scen_600_Years_25_Time_021625_000906/summaries600']
         color_style= [ 'green', 'cyan', 'gray','darkviolet' , 'red', 'blue' ]
         ls_style=[(5, (10, 3)), '--', (0, (3, 1, 1, 1)),"-.",  ':',(1 ,(1, 2,3,2))]
         leg_labels = ['Baseline', 'OD: 60% Only', 'AD 60% Only', 'CM 60% Only', 'OD: 40%, AD: 20%, CM: 20%','OD: 60%, AD: 40%, CM: 40%', 'OD: 80%, AD: 60%, CM: 60%']
@@ -482,9 +482,11 @@ for policy in ["Joint"]:#:["AD", "OD", "CM", "Joint"]:
                             scen_idx =comparison_folder_list.index(Comparison_Folder)
                             ax.errorbar(new_year_list[warmup:],comp_mu[warmup:],errCOMP[warmup:], elinewidth = 1, capsize=10, color = color_style[scen_idx],ls=ls_style[scen_idx], alpha=.9)                       
                     ''' Final plot changes '''
-                    continue
+                    #continue
                     ax.set_xlabel('Year')
-                    ax.set_xticks(np.arange(2010, 2035, step=5),rotation=45)
+                    ax.set_xticks(np.arange(2010, 2035, step=5))
+                    # Set the x-tick labels (same as ticks, but here you can modify them if necessary)
+                    ax.set_xticklabels(np.arange(2010, 2035, step=5), rotation=45)
                     #ax.set_yticks(range(0,10,2))
                     ax.set_ylabel(ylabel)
                     #ax.set_title("Simulated Joint 95% Confidence Intervals of \n" + name )
@@ -512,7 +514,7 @@ for policy in ["Joint"]:#:["AD", "OD", "CM", "Joint"]:
             ''' Plot each Required Capacities '''
             continue
             if baseline_histcreated == False:
-                continue
+                #continue
                 base_mu, base_max, base_min = dict_mean(df_baseline[1:], num_years*months_in_year)
                 base_sd = dict_sd(df_baseline[1:],num_years*12)
                 ''' Plot Baseline Required Capacities '''
