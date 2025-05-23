@@ -5,7 +5,7 @@ from Simulation_Functions.graph_functions import *
 from datetime import datetime
 import time as ti
 
-def print_model_outputs(warmup, seeds, starttime, original_stdout, results,params):
+def print_model_outputs(warmup, seeds, starttime, original_stdout, results,params,Temp_results_folder):
     n_runs = params["n_runs"]
     num_years = params["num_years"]
     days_per_year = params["days_per_year"]
@@ -97,7 +97,7 @@ def print_model_outputs(warmup, seeds, starttime, original_stdout, results,param
         s[13].insert(0, "Scenerio", index, True)
         df_times = pd.concat([df_times, s[13]], ignore_index=True, sort=False)
         Total_AllCrimes[index] = s[14]
-    write_file2 = open("Results/Test_SimulationsStatsSUMMARY_"+str(n_runs)+"Runs.txt", "w+")
+    write_file2 = open(Temp_results_folder+"/Test_SimulationsStatsSUMMARY_"+str(n_runs)+"Runs.txt", "w+")
 
     sys.stdout = write_file2
     print("-----------------------Seeds used --------------------------------------")
@@ -232,5 +232,5 @@ def print_model_outputs(warmup, seeds, starttime, original_stdout, results,param
     dt_string = today.strftime("%m%d%y_%H%M%S")
     process = int(sys.argv[3])
     dst = 'Results_'+str(process)+'Process_ED2RVal_'+ str(int(str_MatrixVal))+ '_MARIVal_' + str(int(str_MARIVal)) + '_CMVal_' + str(int(str_CMVal)) +'_Scen_'+ str(n_runs) + '_Years_'+str(num_years)+ '_Time_'+ dt_string
-    os.rename('Results', dst)
-    print(" renamed results folder to: ", dst)
+    os.rename(Temp_results_folder, dst)
+    print(" renamed temporary results folder to: ", dst)

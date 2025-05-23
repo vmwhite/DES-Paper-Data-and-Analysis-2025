@@ -5,7 +5,7 @@ import pandas as pd
 from .math_functions import *
 
 ########################################## graphing funcitons ##########################################
-def print_histogram(list,bins_num,s,stringx,stringy,name):
+def print_histogram(list,bins_num,s,stringx,stringy,name,Temp_results_folder):
     plt.figure(figsize=(9, 6),dpi=300)
     freq, bins, patches = plt.hist(list,bins_num) 
     bin_centers = np.diff(bins)*0.5 + bins[:-1]
@@ -23,10 +23,10 @@ def print_histogram(list,bins_num,s,stringx,stringy,name):
     plt.ylabel(stringy)
     # plt.tight_layout()
     plt.autoscale()
-    plt.savefig('Results/Figures/Scenario'+str(s)+'/'+name+'_Hist.png')
+    plt.savefig(Temp_results_folder+'/Figures/Scenario'+str(s)+'/'+name+'_Hist.png')
     plt.close()
 
-def print_barChart(data,s,stringx,stringy,name,num_years,warmup):
+def print_barChart(data,s,stringx,stringy,name,num_years,warmup,Temp_results_folder):
     ######## utilization by month ###
     plt.figure(figsize=(9, 6),dpi=300)
     plt.tight_layout()
@@ -43,7 +43,7 @@ def print_barChart(data,s,stringx,stringy,name,num_years,warmup):
             xytext=(0,10), # distance from text to points (x,y)
             ha='center') # horizontal alignment can be left, right or center
     plt.autoscale()
-    plt.savefig('Results/Figures/Scenario'+str(s)+'/Month_'+name+'_Hist.png')
+    plt.savefig(Temp_results_folder+'/Figures/Scenario'+str(s)+'/Month_'+name+'_Hist.png')
     plt.close()
     ####### utilization by year ###  NOTE TO SELF: BEINGING OF YEAR IS JUST FIRST MONTH OF THAT YEAR!!!!!!
     plt.tight_layout()
@@ -65,10 +65,10 @@ def print_barChart(data,s,stringx,stringy,name,num_years,warmup):
         j +=1
     plt.bar(range(warmup,len(yearly_data)), yearly_data[warmup:], align='edge', width=1.0, color='black')
     plt.autoscale()
-    plt.savefig('Results/Figures/Scenario'+str(s)+'/Year_'+name+'_Hist.png')
+    plt.savefig(Temp_results_folder+'/Figures/Scenario'+str(s)+'/Year_'+name+'_Hist.png')
     plt.close()
 
-def ci_graph(n_runs, start_year, num_years, warmup, sim_avg, sim_max, sim_min, sim_sd, e_year, e_lower, e_mean,name):
+def ci_graph(n_runs, start_year, num_years, warmup, sim_avg, sim_max, sim_min, sim_sd, e_year, e_lower, e_mean,name,Temp_results_folder):
     plt.figure(figsize=(9, 6),dpi=300)
     errSIM = sim_sd/ np.sqrt(n_runs)*1.96 #normal mean confidence intervals
     errSIM = [x - y for x, y in zip(sim_max, sim_min)] #non-parametric prediction intervals
@@ -87,10 +87,10 @@ def ci_graph(n_runs, start_year, num_years, warmup, sim_avg, sim_max, sim_min, s
     plt.ylabel(name+' per Year')
     plt.legend(['Observed', 'Simulated 95% Joint Prediction Interval'])
     plt.autoscale()
-    plt.savefig('Results/Figures/'+name+'_CI.png')
+    plt.savefig(Temp_results_folder+'/Figures/'+name+'_CI.png')
     plt.close()
 
-def ci_graph_point(n_runs, start_year, num_years, warmup, sim_avg, sim_max, sim_min, sim_sd, e_points,e_col,name):
+def ci_graph_point(n_runs, start_year, num_years, warmup, sim_avg, sim_max, sim_min, sim_sd, e_points,e_col,name,Temp_results_folder):
     #add min and max values. 
     plt.figure(figsize=(9, 6),dpi=300)
     errSIM = sim_sd/ np.sqrt(n_runs)*1.96 #normal mean confidence intervals
@@ -112,5 +112,5 @@ def ci_graph_point(n_runs, start_year, num_years, warmup, sim_avg, sim_max, sim_
     plt.xticks(np.arange(2005, 2035, step=5),rotation=45)
     plt.ylabel(name+' per Year')
     plt.autoscale()
-    plt.savefig('Results/Figures/'+name+'_CI.png')
+    plt.savefig(Temp_results_folder+'/Figures/'+name+'_CI.png')
     plt.close()
