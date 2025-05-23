@@ -143,10 +143,10 @@ def find_mapped_position(value, max_val, min_val):
 
 # Example usage
 Sens_ranges = [
-    (2.73,	3.02),
-    (0.53,	0.59),
-    (2.95,	3.26),
-    (0.44,	0.48),
+    (1.98,	2.18),
+    (0.72,	0.80),
+    (3.55,	3.93),
+    (0.47,	0.51),
     (25934.05,	46291.35),
     (4.75,	15.75),
     (14.25,	52.50),
@@ -276,20 +276,20 @@ sens_range_span, max_val, min_val, mapped_sens_ranges = map_ranges_to_unity(Sens
 ''' Import Sensitivity Paramerters and Baseline Output Folder'''
 
 dirname = os.path.dirname(__file__)
-df_Params = pd.read_csv (r'Sensitivity_Runs\Sens_Params.csv')
+df_Params = pd.read_csv (r'Revison2_Results\AppD_Sensitivity\Sens_Params.csv')
 # print(df_Params)
 
-df_ServiceTimes_Output = pd.read_csv(r'Sensitivity_Runs\ Avg_Service_Times.csv')
+df_ServiceTimes_Output = pd.read_csv(r'Revison2_Results\AppD_Sensitivity\Avg_Service_Times.csv')
 df_Sens_ServiceTimes =pd.merge(df_Params,df_ServiceTimes_Output,left_on='Run', right_on="Run") 
 
-df_BaselineOutput = pd.read_csv(r'Results_0Process_ED2RVal_22270_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_051724_203606\summaries600\Base_ServiceTimes.csv')
+df_BaselineOutput = pd.read_csv(r'Revison2_Results\Results_0Process_ED2RVal_22270_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_021425_082048\summaries600\Base_ServiceTimes.csv')
 # print(df_Output)
 
 num_runs = df_Sens_ServiceTimes.shape[0]  # Gives number of rows
 print(df_Sens_ServiceTimes) #confirmed that these are joining correctly
 
 ''' Creates Histograms of Uncertainty Analysis with Baseline Outputs'''      
-#'''
+'''
 #The following prints histograms of the sampled parameter distributions and Output Distributions
 for idx, col in enumerate(df_Sens_ServiceTimes):
     if idx == 0:
@@ -338,7 +338,7 @@ for idx, col in enumerate(df_Sens_ServiceTimes):
         plt.close()
 #'''
 ''' Running Linear Regression of Parameters on Service Time Outputs'''
-#'''
+'''
 df_x_params = df_Params.drop(columns=['Run'])
 params_list = list(df_x_params.columns)
 Results = ['Col', 'X_0', params_list]
@@ -476,30 +476,30 @@ for output_col in df_ServiceTimes_Output:
         test = sms.het_goldfeldquandt(lm2.resid, lm2.model.exog)
         print(lzip(name, test))
 # print(Results)
-with open("Sensitivity_Runs\RegressionResults.csv", "w", newline="") as f: #for uncertainty and sensitivity analysis
+with open("Revison2_Results\AppD_Sensitivity\RegressionResults.csv", "w", newline="") as f: #for uncertainty and sensitivity analysis
         writer = csv.writer(f)
         writer.writerows(Results)
         f.close()
 #'''
 ''' Standard Outputs'''
-Sens_output_file_list = [r'Sensitivity_Runs\ Avg_Active_YearEnd.csv',
-r'Sensitivity_Runs\ Avg_OArrests.csv',
-r'Sensitivity_Runs\ Avg_Hosp.csv',
-r'Sensitivity_Runs\ Avg_Inactive_YearEnd.csv',
-r'Sensitivity_Runs\ Avg_Odeaths.csv',
-r'Sensitivity_Runs\ Avg_Prevalence.csv',
-r'Sensitivity_Runs\ Avg_Relapses.csv',
-r'Sensitivity_Runs\ Avg_Treats.csv']
+Sens_output_file_list = [r'Revison2_Results\AppD_Sensitivity\Avg_Active_YearEnd.csv',
+r'Revison2_Results\AppD_Sensitivity\Avg_OArrests.csv',
+r'Revison2_Results\AppD_Sensitivity\Avg_Hosp.csv',
+r'Revison2_Results\AppD_Sensitivity\Avg_Inactive_YearEnd.csv',
+r'Revison2_Results\AppD_Sensitivity\Avg_Odeaths.csv',
+r'Revison2_Results\AppD_Sensitivity\Avg_Prevalence.csv',
+r'Revison2_Results\AppD_Sensitivity\Avg_Relapses.csv',
+r'Revison2_Results\AppD_Sensitivity\Avg_Treats.csv']
 
 
-Base_output_file_list = [r'Results_0Process_ED2RVal_22270_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_051724_203606\summaries600\Base_Yearly_Active_YearEnd.csv',
-r'Results_0Process_ED2RVal_22270_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_051724_203606\summaries600\Base_Yearly_OArrests.csv',
-r'Results_0Process_ED2RVal_22270_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_051724_203606\summaries600\Base_Yearly_Hosp.csv',
-r'Results_0Process_ED2RVal_22270_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_051724_203606\summaries600\Base_Yearly_Inactive_YearEnd.csv',
-r'Results_0Process_ED2RVal_22270_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_051724_203606\summaries600\Base_Yearly_ODeaths.csv',
-r'Results_0Process_ED2RVal_22270_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_051724_203606\summaries600\Base_Yearly_Prevalence.csv',
-r'Results_0Process_ED2RVal_22270_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_051724_203606\summaries600\Base_Yearly_Relapses.csv',
-r'Results_0Process_ED2RVal_22270_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_051724_203606\summaries600\Base_Yearly_Treats.csv']
+Base_output_file_list = [r'Revison2_Results\Results_0Process_ED2RVal_22270_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_021425_082048\summaries600\Base_Yearly_Active_YearEnd.csv',
+r'Revison2_Results\Results_0Process_ED2RVal_22270_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_021425_082048\summaries600\Base_Yearly_OArrests.csv',
+r'Revison2_Results\Results_0Process_ED2RVal_22270_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_021425_082048\summaries600\Base_Yearly_Hosp.csv',
+r'Revison2_Results\Results_0Process_ED2RVal_22270_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_021425_082048\summaries600\Base_Yearly_Inactive_YearEnd.csv',
+r'Revison2_Results\Results_0Process_ED2RVal_22270_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_021425_082048\summaries600\Base_Yearly_ODeaths.csv',
+r'Revison2_Results\Results_0Process_ED2RVal_22270_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_021425_082048\summaries600\Base_Yearly_Prevalence.csv',
+r'Revison2_Results\Results_0Process_ED2RVal_22270_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_021425_082048\summaries600\Base_Yearly_Relapses.csv',
+r'Revison2_Results\Results_0Process_ED2RVal_22270_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_021425_082048\summaries600\Base_Yearly_Treats.csv']
 
 output_str = ["Active", "OArrest", "Hosp", "Inactive", "ODeaths", "Prev", "Relapses","Treats"] 
 years_col = ["Year_9","Year_11", "Year_25"]
@@ -508,7 +508,7 @@ main_output_count = len(Sens_ranges)
 alpha = 0.5
 bon_corr = 0.5/main_output_count
 n = 600
-dist_dir = r'Sensitivity_Runs\Scatter_Plots'
+dist_dir = r'Revison2_Results\AppD_Sensitivity\Scatter_Plots'
 
 df_PRCC = pd.DataFrame()
 num_tests = 41
@@ -730,9 +730,9 @@ for img_idx,image in enumerate(qqplot_images):
 #'''
 df_PRCC['p-val'] = multipletests(df_PRCC['p-val'], method='bonferroni')[1]
 #df_PRCC['p-val'] = df_PRCC['p-val'].apply(lambda x: x*num_tests)
-df_PRCC.to_excel("Sensitivity_Runs\PRCC_output.xlsx")  
+df_PRCC.to_excel("Revison2_Results\AppD_Sensitivity\PRCC_output.xlsx")  
 DF_OLS = pd.DataFrame(df_OLS)
-DF_OLS.to_excel("Sensitivity_Runs\OLS_output.xlsx")  
+DF_OLS.to_excel("Revison2_Results\AppD_Sensitivity\OLS_output.xlsx")  
 
 
 
@@ -757,12 +757,12 @@ for idx,row in df_PRCC.iterrows():
 
 from Sens_Tables import PRCC_Results_Table
 table = PRCC_Results_Table(PRCC_table_list,param_name_latex, years_col)
-with open('Sensitivity_Runs\PRCC_Results.txt', 'w') as f:
+with open('Revison2_Results\AppD_Sensitivity\PRCC_Results.txt', 'w') as f:
     f.write(table)
 
 from Sens_Tables import OLS_Results_Table
 table = OLS_Results_Table(df_OLS,param_name_latex,PRCC_table_list, years_col)
-with open('Sensitivity_Runs\OLS_Results.txt', 'w') as f:
+with open('Revison2_Results\AppD_Sensitivity\OLS_Results.txt', 'w') as f:
     f.write(table)
 
 
