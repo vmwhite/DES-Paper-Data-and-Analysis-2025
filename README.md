@@ -32,7 +32,7 @@ The following is an example of how to call the simulation with two replications 
 ## The "Post_Processing" folder
 This folder contains various Python files used to process the outputs of "Simulation_DC_OpioidPolicing_MARI_ED_and_CM.py" to the formats presented in [1]. Specifically: 
 - The **"Compile_RawResults.py"** file is Python Code that converts the raw output of the "Simulation_DC_OpioidPolicing_MARI_ED_and_CM.py" main outputs to .csv files.
-- - The **"Compile_ServiceTimes.py"** file is Python Code that converts the raw output of the "Simulation_DC_OpioidPolicing_MARI_ED_and_CM.py" service times to .csv files.
+- The **"Compile_ServiceTimes.py"** file is Python Code that converts the raw output of the "Simulation_DC_OpioidPolicing_MARI_ED_and_CM.py" service times to .csv files.
 - The **"Prediction_interval_Calibration_Figs.py"** file is Python code used to create the .png files used in Figure 2 for [1]
 - The "Results_Table.py" file is the Python code to create Table 4 for [1] and outputs the LaTeX table as "CombinedResults.txt"
 - The **"Scenario_Comparison.py"** file to create graphs in .png and tables in .txt format used in Table 5, Figure 3, and Appendix C for [1]
