@@ -9,25 +9,26 @@ n= 600
 cwd = os.getcwd() 
 
 
-flist = [r'Results_0Process_ED2RVal_22270_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_051724_203606',
-r'Results_1Process_ED2RVal_30000_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_051724_194511',
-r'Results_2Process_ED2RVal_45000_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_051724_210127',
-r'Results_3Process_ED2RVal_60000_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_051724_151544',
-r'Results_4Process_ED2RVal_75000_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_051724_201600',
-r'Results_5Process_ED2RVal_90000_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_051724_143934',
-r'Results_6Process_ED2RVal_22270_MARIVal_20_CMVal_0_Scen_600_Years_25_Time_051724_194618',
-r'Results_7Process_ED2RVal_22270_MARIVal_40_CMVal_0_Scen_600_Years_25_Time_051724_143736',
-r'Results_8Process_ED2RVal_22270_MARIVal_60_CMVal_0_Scen_600_Years_25_Time_051724_192330',
-r'Results_9Process_ED2RVal_22270_MARIVal_80_CMVal_0_Scen_600_Years_25_Time_051724_150123',
-r'Results_10Process_ED2RVal_22270_MARIVal_100_CMVal_0_Scen_600_Years_25_Time_051724_141226',
-r'Results_11Process_ED2RVal_22270_MARIVal_0_CMVal_20_Scen_600_Years_25_Time_051724_135815',
-r'Results_12Process_ED2RVal_22270_MARIVal_0_CMVal_40_Scen_600_Years_25_Time_051724_135714',
-r'Results_13Process_ED2RVal_22270_MARIVal_0_CMVal_60_Scen_600_Years_25_Time_051724_140819',
-r'Results_14Process_ED2RVal_22270_MARIVal_0_CMVal_80_Scen_600_Years_25_Time_051724_140527',
-r'Results_15Process_ED2RVal_22270_MARIVal_0_CMVal_100_Scen_600_Years_25_Time_051724_142528',
-r'Results_16Process_ED2RVal_40000_MARIVal_20_CMVal_20_Scen_600_Years_25_Time_051724_150754',
-r'Results_17Process_ED2RVal_60000_MARIVal_40_CMVal_40_Scen_600_Years_25_Time_051724_145529',
-r'Results_18Process_ED2RVal_80000_MARIVal_60_CMVal_60_Scen_600_Years_25_Time_051724_164846']
+flist = [
+r'Revison2_Results\Results_0Process_ED2RVal_22270_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_021425_082048',
+r'Revison2_Results\Results_1Process_ED2RVal_30000_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_021525_233701',
+r'Revison2_Results\Results_3Process_ED2RVal_60000_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_021525_215713',
+r'Revison2_Results\Results_4Process_ED2RVal_75000_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_021525_220748',
+r'Revison2_Results\Results_2Process_ED2RVal_45000_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_021525_232627',
+r'Revison2_Results\Results_5Process_ED2RVal_90000_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_021525_220209',
+r'Revison2_Results\Results_6Process_ED2RVal_22270_MARIVal_20_CMVal_0_Scen_600_Years_25_Time_021625_235105',
+r'Revison2_Results\Results_7Process_ED2RVal_22270_MARIVal_40_CMVal_0_Scen_600_Years_25_Time_021725_000103',
+r'Revison2_Results\Results_8Process_ED2RVal_22270_MARIVal_60_CMVal_0_Scen_600_Years_25_Time_021625_000057',
+r'Revison2_Results\Results_9Process_ED2RVal_22270_MARIVal_80_CMVal_0_Scen_600_Years_25_Time_021525_221139',
+r'Revison2_Results\Results_10Process_ED2RVal_22270_MARIVal_100_CMVal_0_Scen_600_Years_25_Time_021525_220800',
+r'Revison2_Results\Results_11Process_ED2RVal_22270_MARIVal_0_CMVal_20_Scen_600_Years_25_Time_021525_235255',
+r'Revison2_Results\Results_12Process_ED2RVal_22270_MARIVal_0_CMVal_40_Scen_600_Years_25_Time_021625_000513',
+r'Revison2_Results\Results_13Process_ED2RVal_22270_MARIVal_0_CMVal_60_Scen_600_Years_25_Time_021625_001310',
+r'Revison2_Results\Results_14Process_ED2RVal_22270_MARIVal_0_CMVal_80_Scen_600_Years_25_Time_021525_222241',
+r'Revison2_Results\Results_15Process_ED2RVal_22270_MARIVal_0_CMVal_100_Scen_600_Years_25_Time_021525_220331',
+r'Revison2_Results\Results_16Process_ED2RVal_40000_MARIVal_20_CMVal_20_Scen_600_Years_25_Time_021525_222753',
+r'Revison2_Results\Results_17Process_ED2RVal_60000_MARIVal_40_CMVal_40_Scen_600_Years_25_Time_021525_223933',
+r'Revison2_Results\Results_18Process_ED2RVal_80000_MARIVal_60_CMVal_60_Scen_600_Years_25_Time_021625_000906']
 
 for f_idx,f in enumerate(flist):
     mainfolder = f #ED2Recovery Scenario
@@ -112,22 +113,23 @@ for f_idx,f in enumerate(flist):
                     elif "arrivals in final month:" in line:
                         readin = True
                     
-    years = len(outputs_mainlist[0][0])
-    active_ut = [["Month_" + str(i) for i in range(1,years+1)]]
+    years = 25
+    months = years*12
+    active_ut = [["Month_" + str(i) for i in range(1,months+1)]]
     active_ut[0].insert(0,"Run")
-    inactive_ut = [["Month_" + str(i) for i in range(1,years+1)]]
+    inactive_ut = [["Month_" + str(i) for i in range(1,months+1)]]
     inactive_ut[0].insert(0,"Run")
-    Odeath_ut = [["Month_" + str(i) for i in range(1,years+1)]]
+    Odeath_ut = [["Month_" + str(i) for i in range(1,months+1)]]
     Odeath_ut[0].insert(0,"Run")
-    Non_Odeath_ut = [["Month_" + str(i) for i in range(1,years+1)]]
+    Non_Odeath_ut = [["Month_" + str(i) for i in range(1,months+1)]]
     Non_Odeath_ut[0].insert(0,"Run")
-    OArrest_ut = [["Month_" + str(i) for i in range(1,years+1)]]
+    OArrest_ut = [["Month_" + str(i) for i in range(1,months+1)]]
     OArrest_ut[0].insert(0,"Run")
-    anyArrest_ut = [["Month_" + str(i) for i in range(1,years+1)]]
+    anyArrest_ut = [["Month_" + str(i) for i in range(1,months+1)]]
     anyArrest_ut[0].insert(0,"Run")
-    Hosp_ut = [["Month_" + str(i) for i in range(1,years+1)]]
+    Hosp_ut = [["Month_" + str(i) for i in range(1,months+1)]]
     Hosp_ut[0].insert(0,"Run")
-    Treat_ut = [["Month_" + str(i) for i in range(1,years+1)]]
+    Treat_ut = [["Month_" + str(i) for i in range(1,months+1)]]
     Treat_ut[0].insert(0,"Run")
     arrivals = [["Year_" + str(i) for i in range(1,years+1)]]
     arrivals[0].insert(0,"Run")
@@ -387,7 +389,9 @@ for f_idx,f in enumerate(flist):
                 cumulative_value = 0
                 cumulative_outcomes[idx].append([])
                 for year, year_val in enumerate(value_list):
-                    cumulative_value += year_val    
+                    #only include sums between years 2023 adn 2032
+                    if year >= 15:
+                        cumulative_value += year_val    
                     cumulative_outcomes[idx][run-1].append(cumulative_value)
                 cumulative_outcomes[idx][run-1].insert(0,run-1)
         first_line = ["Year_" + str(i) for i in range(1,years+1)]

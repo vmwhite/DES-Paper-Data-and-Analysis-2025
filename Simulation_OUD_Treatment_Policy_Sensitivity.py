@@ -138,7 +138,7 @@ def simulation_run(stuff):
     Persons["indv"] = Person
     params["starting_probs"] = starting_probs
     #######################################################
-    write_file = open("Results/Test_SimulationsMovement.txt", "w+")
+    write_file = open(Temp_results_folder +"/Test_SimulationsMovement.txt", "w+")
     sys.stdout = write_file
     
     #start process and run
@@ -151,7 +151,7 @@ def simulation_run(stuff):
     ##################################################################### PRINTING / ANALYSIS #####################################################################################
     sys.stdout = original_stdout
     print(" SIMULATION END - ", num_years," Years - ", env.now)
-    write_file = open("Results/Test_SimulationsStats_" + str(n_runs) + "Runs_" + str(s) + "Scenario.txt", "w+")
+    write_file = open(Temp_results_folder +"/Test_SimulationsStats_" + str(n_runs) + "Runs_" + str(s) + "Scenario.txt", "w+")
     sys.stdout = write_file
     print("----------------------- Example individual  ---------------------------")
     #print(Person_Dict[i])
@@ -510,13 +510,13 @@ def simulation_run(stuff):
     Mean_enter_Age[s] = timeCalculations(enter_age_list)
     Mean_Prev_Age[s] = timeCalculations(prev_age_list)
     ##################### Prints individual scenario Histograms ################################
-    os.makedirs('Results/Figures', exist_ok=True)
+    os.makedirs(Temp_results_folder+'/Figures', exist_ok=True)
     '''
     if (s % 50) == 0: 
         sys.stdout = original_stdout
         print("---- Creating Figures for Scenario", s,"-----")
         sys.stdout = write_file
-        os.makedirs('Results/Figures/Scenario'+str(s), exist_ok=True)
+        os.makedirs(Temp_results_folder +'/Figures/Scenario'+str(s), exist_ok=True)
         #### Hisograms of Totals ###########
         print_histogram(enter_age_list,18,s,"Age at Sim","Number of Individuals", "Age_Init")
         print_histogram(prev_age_list,18,s,"Age of Inidivduals at beginning simualtion", "Number of Individuals", "Age_Prev")
@@ -559,10 +559,10 @@ def simulation_run(stuff):
         plt.title("Number of people in each state at the beginning of the Month")
         plt.ylabel("Number of People")
         plt.tight_layout()
-        plt.savefig('Results/Figures/Scenario'+str(s)+'/Ut_noInactive.png')
+        plt.savefig(Temp_results_folder+'/Figures/Scenario'+str(s)+'/Ut_noInactive.png')
         plt.plot(range(0,int(months)),inactive_ut,marker=".", color="y")
         plt.legend(['Active', "Arrests",'Opioid Deaths',"non-Opioid Deaths", "Treatment", 'Hospital Encounters','In-active'])
-        plt.savefig('Results/Figures/Scenario'+str(s)+'/Ut_all.png')
+        plt.savefig(Temp_results_folder+'/Figures/Scenario'+str(s)+'/Ut_all.png')
         plt.close()
         #### Hisograms of Times ###########
        
@@ -773,7 +773,8 @@ if __name__ == '__main__':
     # death_per = 0.03540161 #test not from past results
     baseline_treat_per = 0.2227
     hospital_encounter_thres_base = {0:arrest_per, 1:(baseline_treat_per+arrest_per), 2:(baseline_treat_per+arrest_per+death_per)}
-    os.makedirs('Results', exist_ok=True)
+    Temp_results_folder = str('Results_job'+sys.argv[3])
+    os.makedirs(Temp_results_folder, exist_ok=True)
     ''' For Sensitivity Run '''
     #For Sensitivity pick favorable scenario to see if results hold. can look before implementation to see if it makes sennse
     # I choose 80% ED, 60% AD/MARI %60 CM
@@ -824,22 +825,22 @@ if __name__ == '__main__':
     params["lam_user_arrival"] = matrix[process][9]
     params["LNmean_deathdays"] = [matrix[process][10],matrix[process][12]]
     params["LNsigma_deathdays"] = [matrix[process][11],matrix[process][13]]
-    params["ODdeathdays_est"] = np.NaN
+    params["ODdeathdays_est"] = np.nan
     params["LNmean_hospdays"] = matrix[process][14]
     params["LNsigma_hospdays"] = matrix[process][15]
-    params["hospdays_est"] = np.NaN
+    params["hospdays_est"] = np.nan
     params["LNmean_Oarrestdays"] = matrix[process][16]
     params["LNsigma_Oarrestdays"] = matrix[process][17]
-    params["Oarrestdays_est"] = np.NaN
+    params["Oarrestdays_est"] = np.nan
     params["LNmean_treatdays"] = matrix[process][18]
     params["LNsigma_treatdays"] = matrix[process][19]
-    params["treatdays_est"] = np.NaN
+    params["treatdays_est"] = np.nan
     params["LNmean_iadays"] = matrix[process][20]
     params["LNsig_iadays"] = matrix[process][21]
-    params["iadays_est"] = np.NaN
+    params["iadays_est"] = np.nan
     params["LNmean_nonOarrestdays"] = matrix[process][22]
     params["LNsigma_nonOarrestdays"] = matrix[process][23]
-    params["nonOarrestdays_est"] = np.NaN
+    params["nonOarrestdays_est"] = np.nan
     #Probability following hospital encounter: arrest is 0.01, deat
     # h is 0.0318, treatment is between (baseline:0.2227, max:0.9582)
     arrest_per = matrix[process][24]
@@ -866,13 +867,13 @@ if __name__ == '__main__':
     params["LNsig_hosprel"] = matrix[process][38]
     params["LNmean_iarel"] = matrix[process][39]
     params["LNsig_iarel"] = matrix[process][40]
-    params["hospservice_est"] = np.NaN
-    params["crimeservice_est"] = np.NaN
-    params["treatservice_est"] = np.NaN 
-    params["crimerel_est"] = np.NaN
-    params["treatrel_est"] = np.NaN
-    params["hosprel_est"] = np.NaN
-    params["iarel_est"] = np.NaN
+    params["hospservice_est"] = np.nan
+    params["crimeservice_est"] = np.nan
+    params["treatservice_est"] = np.nan 
+    params["crimerel_est"] = np.nan
+    params["treatrel_est"] = np.nan
+    params["hosprel_est"] = np.nan
+    params["iarel_est"] = np.nan
     ''''''
     params["str_MatrixVal"] = str_MatrixVal
     params["HE_thres_baseline"] = hospital_encounter_thres_base
@@ -918,7 +919,7 @@ if __name__ == '__main__':
     else:
         CPUs = 8
 
-    debug = True
+    debug = False
     if debug:
         results = []
         for s in range(params["n_runs"]):
@@ -934,7 +935,7 @@ if __name__ == '__main__':
     endtime = ti.time()
     print ('total time elapsed:', endtime - starttime)
     print("...Simulation Finished. Starting Summary Statistics...")
-    print_model_outputs(warmup, seeds, starttime, original_stdout, results, params)
+    print_model_outputs(warmup, seeds, starttime, original_stdout, results, params,Temp_results_folder) 
 
     '''
     #Working code...

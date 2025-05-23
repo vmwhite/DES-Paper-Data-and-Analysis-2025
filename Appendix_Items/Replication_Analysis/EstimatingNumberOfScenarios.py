@@ -39,10 +39,10 @@ from texttable import Texttable
 import latextable
 ###############################################################################################################
 '''' Define inputs'''
+#dont change things as its not lined up along everthing and could lead to erors. You ahve to make teh table yourself from the outputs.
 d_thres = 0.01
 #half-widths [active, arrests, hosp, inactive, odeaths, prev, relapse, treat]  *10 for 10 year cumulative outcomes
 E = [100,5,5,1000,1,100,5,5,100*25,5*25,5*25,1000*25,1*25,100*25,5*25,5*25]
-
 
 ###############################################################################################################
 ''' Special Functions'''
@@ -89,28 +89,28 @@ def make_latex_table(rows, col_num):
 
 dirname = os.path.dirname(__file__)
 try: 
-    os.makedirs(r'Results_0Process_ED2RVal_22270_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_051724_203606\summaries600\N')
+    os.makedirs(r'Revison2_Results\Results_0Process_ED2RVal_22270_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_021425_082048\summaries600\N')
 except:
     pass
-Baseline_Output_Folder = r'Results_0Process_ED2RVal_22270_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_051724_203606\summaries600\N'
+Baseline_Output_Folder = r'Revison2_Results\Results_0Process_ED2RVal_22270_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_021425_082048\summaries600\N'
 
 ''' Yearly Standard Outputs'''
-Base_output_file_list = [r'Results_0Process_ED2RVal_22270_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_051724_203606\summaries600\Base_Yearly_Active_YearEnd.csv',
-r'Results_0Process_ED2RVal_22270_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_051724_203606\summaries600\Base_Yearly_OArrests.csv',
-r'Results_0Process_ED2RVal_22270_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_051724_203606\summaries600\Base_Yearly_Hosp.csv',
-r'Results_0Process_ED2RVal_22270_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_051724_203606\summaries600\Base_Yearly_Inactive_YearEnd.csv',
-r'Results_0Process_ED2RVal_22270_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_051724_203606\summaries600\Base_Yearly_ODeaths.csv',
-r'Results_0Process_ED2RVal_22270_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_051724_203606\summaries600\Base_Yearly_Prevalence.csv',
-r'Results_0Process_ED2RVal_22270_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_051724_203606\summaries600\Base_Yearly_Relapses.csv',
-r'Results_0Process_ED2RVal_22270_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_051724_203606\summaries600\Base_Yearly_Treats.csv',
-r'Results_0Process_ED2RVal_22270_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_051724_203606\summaries600\\Cum_Active_YearEnd.csv',
-r'Results_0Process_ED2RVal_22270_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_051724_203606\summaries600\\Cum_OArrests.csv',
-r'Results_0Process_ED2RVal_22270_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_051724_203606\summaries600\\Cum_Hosp.csv',
-r'Results_0Process_ED2RVal_22270_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_051724_203606\summaries600\\Cum_Inactive_YearEnd.csv',
-r'Results_0Process_ED2RVal_22270_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_051724_203606\summaries600\\Cum_ODeaths.csv',
-r'Results_0Process_ED2RVal_22270_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_051724_203606\summaries600\\Cum_Prevalence.csv',
-r'Results_0Process_ED2RVal_22270_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_051724_203606\summaries600\\Cum_Relapses.csv',
-r'Results_0Process_ED2RVal_22270_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_051724_203606\summaries600\\Cum_Treats.csv']
+Base_output_file_list = [r'Revison2_Results\Results_0Process_ED2RVal_22270_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_021425_082048\summaries600\Base_Yearly_Active_YearEnd.csv',
+r'Revison2_Results\Results_0Process_ED2RVal_22270_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_021425_082048\summaries600\Base_Yearly_OArrests.csv',
+r'Revison2_Results\Results_0Process_ED2RVal_22270_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_021425_082048\summaries600\Base_Yearly_Hosp.csv',
+r'Revison2_Results\Results_0Process_ED2RVal_22270_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_021425_082048\summaries600\Base_Yearly_Inactive_YearEnd.csv',
+r'Revison2_Results\Results_0Process_ED2RVal_22270_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_021425_082048\summaries600\Base_Yearly_ODeaths.csv',
+r'Revison2_Results\Results_0Process_ED2RVal_22270_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_021425_082048\summaries600\Base_Yearly_Prevalence.csv',
+r'Revison2_Results\Results_0Process_ED2RVal_22270_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_021425_082048\summaries600\Base_Yearly_Relapses.csv',
+r'Revison2_Results\Results_0Process_ED2RVal_22270_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_021425_082048\summaries600\Base_Yearly_Indv_Treats.csv',
+r'Revison2_Results\Results_0Process_ED2RVal_22270_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_021425_082048\summaries600\\Cum_Active_YearEnd.csv',
+r'Revison2_Results\Results_0Process_ED2RVal_22270_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_021425_082048\summaries600\\Cum_OArrests.csv',
+r'Revison2_Results\Results_0Process_ED2RVal_22270_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_021425_082048\summaries600\\Cum_Hosp.csv',
+r'Revison2_Results\Results_0Process_ED2RVal_22270_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_021425_082048\summaries600\\Cum_Inactive_YearEnd.csv',
+r'Revison2_Results\Results_0Process_ED2RVal_22270_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_021425_082048\summaries600\\Cum_ODeaths.csv',
+r'Revison2_Results\Results_0Process_ED2RVal_22270_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_021425_082048\summaries600\\Cum_Prevalence.csv',
+r'Revison2_Results\Results_0Process_ED2RVal_22270_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_021425_082048\summaries600\\Cum_Relapses.csv',
+r'Revison2_Results\Results_0Process_ED2RVal_22270_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_021425_082048\summaries600\\Cum_Indv_Treats.csv']
 
 # Scen_output_file_list = [r'Results_ED2RVal_80000_MARIVal_60_CMVal_60_Scen_400_Years_25_Time_010623_153652\summaries600\Base_Yearly_Active_YearEnd.csv',
 # r'Results_ED2RVal_80000_MARIVal_60_CMVal_60_Scen_400_Years_25_Time_010623_153652\summaries600\Base_Yearly_Arrests.csv',
@@ -121,14 +121,18 @@ r'Results_0Process_ED2RVal_22270_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_051724
 # r'Results_ED2RVal_80000_MARIVal_60_CMVal_60_Scen_400_Years_25_Time_010623_153652\summaries600\Base_Yearly_Relapses.csv',
 # r'Results_ED2RVal_80000_MARIVal_60_CMVal_60_Scen_400_Years_25_Time_010623_153652\summaries600\Base_Yearly_Treats.csv']
 
-output_str = ["Active", "Arrest", "Hosp", "Inactive", "ODeaths", "Relapses", "Prev", "Treats", 
-              "Cumulative Active", "Cumulative Arrest", "Cumulative Hosp", "Cumulative Inactive", "Cumulative ODeaths", "Cumulative Relapses", "Cumulative Prev", "Cumulative Treats"]
+output_str = ["Active", "Arrest", "Hosp", "Inactive", 
+              "ODeaths", "Relapses", "Prev", 
+              "Treats", 
+              "Cumulative Active", "Cumulative Arrest", "Cumulative Hosp", "Cumulative Inactive", 
+              "Cumulative ODeaths", "Cumulative Relapses", "Cumulative Prev", 
+              "Cumulative Treats"]
 
 #################### Make QQplots #########################
-year = [2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026, 2027, 2028, 2029, 2030, 2031, 2032]
-year_list = ["Year_15","Year_20", "Year_25"]
+year = [np.nan, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026, 2027, 2028, 2029, 2030, 2031, 2032]
+year_list = ["Year_9","Year_11", "Year_25"]
 # Prepare the figure
-fig, axes = plt.subplots(4, 3, figsize=(20, 20))
+fig, axes = plt.subplots(5, 3, figsize=(20, 20))
 plt.subplots_adjust(hspace=0.4, wspace=0.4)
 ax_flat = axes.flatten()
 
@@ -138,7 +142,7 @@ plot_count = 0
 for f_idx, f in enumerate(Base_output_file_list):
     df_Base = pd.read_csv(Base_output_file_list[f_idx])
     for idx, col in enumerate(df_Base):
-        if col == year_list:
+        if col in year_list:
             array_Base = df_Base[col]
             X_bar = np.mean(array_Base[0:600])
             residuals = X_bar - array_Base[0:600]
@@ -244,6 +248,7 @@ for f_idx, f in enumerate(Base_output_file_list):
     plt.plot(x, y_2)
     plt.axhline(y=0.05, color='r', linestyle='-')
     plt.title(output_str[f_idx])
+    #highlights where we fail to reject the null hypotheses
     norm = np.where(normal_n == 1)[0]
     for i in range(len(norm)):
         plt.axvline(x=norm[i], color='g', alpha=0.1,linestyle='-')
@@ -278,8 +283,16 @@ print(skewness)
 
 rows = []
 rows.append(['Test', "Active", "Opioid-Related Arrests", "Hospital Encounters", "Opioid-Related Deaths",  "Treatments", "Cummulative Active", "Cumulative Opioid-Related Arrests", "Cumulative Hospital Encounters","Cumulative Opioid-Related Deaths",  "Cumulative Treatments"])
-rows.append(['K-S Test with Lilliefors correction (p-value)', str(round(normal_KScorr[0],2)),str(round(normal_KScorr[1],2)),str(round(normal_KScorr[2],2)), str(round(normal_KScorr[4],2)), str(round(normal_KScorr[7],2)),str(round(normal_KScorr[8],2)),str(round(normal_KScorr[9],2)),str(round(normal_KScorr[10],2)),str(round(normal_KScorr[12],2)),str(round(normal_KScorr[-1],2))])
-rows.append(['Skewness', str(round(skewness[0],2)),str(round(skewness[1],2)),str(round(skewness[2],2)), str(round(skewness[4],2)), str(round(skewness[7],2)),str(round(skewness[8],2)),str(round(skewness[9],2)),str(round(skewness[10],2)),str(round(skewness[12],2)),str(round(skewness[-1],2))])
+rows.append(['K-S Test with Lilliefors correction (p-value)', str(round(normal_KScorr[output_str.index("Active")],2)),
+             str(round(normal_KScorr[output_str.index("Arrest")],2)),str(round(normal_KScorr[output_str.index("Hosp")],2)), 
+             str(round(normal_KScorr[output_str.index("ODeaths")],2)), str(round(normal_KScorr[output_str.index("Treats")],2)),
+             str(round(normal_KScorr[output_str.index("Cumulative Active")],2)),str(round(normal_KScorr[output_str.index("Cumulative Arrest")],2)),
+             str(round(normal_KScorr[output_str.index("Cumulative Hosp")],2)),str(round(normal_KScorr[output_str.index("Cumulative ODeaths")],2)),str(round(normal_KScorr[output_str.index("Cumulative Treats")],2))])
+rows.append(['Skewness', str(round(skewness[output_str.index("Active")],2)),str(round(skewness[output_str.index("Arrest")],2)),
+             str(round(skewness[output_str.index("Hosp")],2)), str(round(skewness[output_str.index("ODeaths")],2)),
+             str(round(skewness[output_str.index("Treats")],2)),str(round(skewness[output_str.index("Cumulative Active")],2)),
+             str(round(skewness[output_str.index("Cumulative Arrest")],2)),str(round(skewness[output_str.index("Cumulative Hosp")],2)),
+             str(round(skewness[output_str.index("Cumulative ODeaths")],2)),str(round(skewness[output_str.index("Cumulative Treats")],2))])
 
 table = make_latex_table(rows, 11)
 print(latextable.draw_latex(table, caption="Normality Tests for Simulation Residual Outputs for Year 2032  N=600", label= "tab:NormTest"))

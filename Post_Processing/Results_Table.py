@@ -61,33 +61,34 @@ n = 2
 df_Per_Person_Yearly_Costs = {
     'Opioid-Related Death': [11548462],
     'Opioid-Related Arrests, non-Diverted': [55726],
-    'Hospital Encounters': [20077],
-    'Treatment': [1812],
+    'Hospital Encounters': [12051],
+    'Treatment': [8224],
     'Active Use': [34106],
     'Inactive_State': [0],
 }
 ## Things to Update Results ###############################################################################################################
-output_folder = r'Results_0Process_ED2RVal_22270_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_051724_203606'
+output_folder = r'Revison2_Results\Results_0Process_ED2RVal_22270_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_021425_082048'
 
-folder_list = [r'Results_0Process_ED2RVal_22270_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_051724_203606',
-r'Results_1Process_ED2RVal_30000_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_051724_194511',
-r'Results_2Process_ED2RVal_45000_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_051724_210127',
-r'Results_3Process_ED2RVal_60000_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_051724_151544',
-r'Results_4Process_ED2RVal_75000_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_051724_201600',
-r'Results_5Process_ED2RVal_90000_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_051724_143934',
-r'Results_6Process_ED2RVal_22270_MARIVal_20_CMVal_0_Scen_600_Years_25_Time_051724_194618',
-r'Results_7Process_ED2RVal_22270_MARIVal_40_CMVal_0_Scen_600_Years_25_Time_051724_143736',
-r'Results_8Process_ED2RVal_22270_MARIVal_60_CMVal_0_Scen_600_Years_25_Time_051724_192330',
-r'Results_9Process_ED2RVal_22270_MARIVal_80_CMVal_0_Scen_600_Years_25_Time_051724_150123',
-r'Results_10Process_ED2RVal_22270_MARIVal_100_CMVal_0_Scen_600_Years_25_Time_051724_141226',
-r'Results_11Process_ED2RVal_22270_MARIVal_0_CMVal_20_Scen_600_Years_25_Time_051724_135815',
-r'Results_12Process_ED2RVal_22270_MARIVal_0_CMVal_40_Scen_600_Years_25_Time_051724_135714',
-r'Results_13Process_ED2RVal_22270_MARIVal_0_CMVal_60_Scen_600_Years_25_Time_051724_140819',
-r'Results_14Process_ED2RVal_22270_MARIVal_0_CMVal_80_Scen_600_Years_25_Time_051724_140527',
-r'Results_15Process_ED2RVal_22270_MARIVal_0_CMVal_100_Scen_600_Years_25_Time_051724_142528',
-r'Results_16Process_ED2RVal_40000_MARIVal_20_CMVal_20_Scen_600_Years_25_Time_051724_150754',
-r'Results_17Process_ED2RVal_60000_MARIVal_40_CMVal_40_Scen_600_Years_25_Time_051724_145529',
-r'Results_18Process_ED2RVal_80000_MARIVal_60_CMVal_60_Scen_600_Years_25_Time_051724_164846']
+folder_list = [
+r'Revison2_Results\Results_0Process_ED2RVal_22270_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_021425_082048',
+r'Revison2_Results\Results_1Process_ED2RVal_30000_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_021525_233701',
+r'Revison2_Results\Results_2Process_ED2RVal_45000_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_021525_232627',
+r'Revison2_Results\Results_3Process_ED2RVal_60000_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_021525_215713',
+r'Revison2_Results\Results_4Process_ED2RVal_75000_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_021525_220748',
+r'Revison2_Results\Results_5Process_ED2RVal_90000_MARIVal_0_CMVal_0_Scen_600_Years_25_Time_021525_220209',
+r'Revison2_Results\Results_6Process_ED2RVal_22270_MARIVal_20_CMVal_0_Scen_600_Years_25_Time_021625_235105',
+r'Revison2_Results\Results_7Process_ED2RVal_22270_MARIVal_40_CMVal_0_Scen_600_Years_25_Time_021725_000103',
+r'Revison2_Results\Results_8Process_ED2RVal_22270_MARIVal_60_CMVal_0_Scen_600_Years_25_Time_021625_000057',
+r'Revison2_Results\Results_9Process_ED2RVal_22270_MARIVal_80_CMVal_0_Scen_600_Years_25_Time_021525_221139',
+r'Revison2_Results\Results_10Process_ED2RVal_22270_MARIVal_100_CMVal_0_Scen_600_Years_25_Time_021525_220800',
+r'Revison2_Results\Results_11Process_ED2RVal_22270_MARIVal_0_CMVal_20_Scen_600_Years_25_Time_021525_235255',
+r'Revison2_Results\Results_12Process_ED2RVal_22270_MARIVal_0_CMVal_40_Scen_600_Years_25_Time_021625_000513',
+r'Revison2_Results\Results_13Process_ED2RVal_22270_MARIVal_0_CMVal_60_Scen_600_Years_25_Time_021625_001310',
+r'Revison2_Results\Results_14Process_ED2RVal_22270_MARIVal_0_CMVal_80_Scen_600_Years_25_Time_021525_222241',
+r'Revison2_Results\Results_15Process_ED2RVal_22270_MARIVal_0_CMVal_100_Scen_600_Years_25_Time_021525_220331',
+r'Revison2_Results\Results_16Process_ED2RVal_40000_MARIVal_20_CMVal_20_Scen_600_Years_25_Time_021525_222753',
+r'Revison2_Results\Results_17Process_ED2RVal_60000_MARIVal_40_CMVal_40_Scen_600_Years_25_Time_021525_223933',
+r'Revison2_Results\Results_18Process_ED2RVal_80000_MARIVal_60_CMVal_60_Scen_600_Years_25_Time_021625_000906']
 
 Output_files= ['Base_Yearly_ODeaths.csv','Base_Yearly_OCrimes.csv', 'Base_Yearly_Hosp.csv' ,'Base_Yearly_Treats.csv', 'Base_Yearly_Active_YearEnd.csv' ,'Cum_ODeaths.csv','Cum_OCrimes.csv', 'Cum_Hosp.csv' ,'Cum_Treats.csv', 'Cum_Active_YearEnd.csv' ]
 Output_title = ['Opioid-Related Death', 'Opioid-Related Arrests', 'Hospital Encounters', 'Treatment','Active Use','Cumulative Opioid-Related Death', 'Cumulative Opioid-Related Arrests', 'Cumulative Hospital Encounters', 'Cumulative Treatment','Cumulative Active Use'] # 'Prevalence']
@@ -198,6 +199,9 @@ columns = ['Scenario', 'Run', 'file', 'Type', 'Year', 'Value']
 df = pd.DataFrame(data, columns=columns)
 df.to_csv(output_folder+"\All_raw_data.csv", index=False)
 print(f'Printed raw data to {output_folder} \All_raw_data.csv')
+'''
+df = pd.read_csv(output_folder+"\All_raw_data.csv")
+#'''
 #conduct paired t-test on main outcome values:
 df_runs = pd.DataFrame(columns=['Scenario', 'Year', 'Type', 'file', 'mean', 'std', 'se', 'min', 'max', 't_stat', 'p_val'])
 row = 0
@@ -214,17 +218,15 @@ for scenario in df['Scenario'].unique():
                     df_runs.loc[row, 'mean'] = np.mean(group1)
                     df_runs.loc[row, 'std'] = np.std(group1)
                     df_runs.loc[row, 'se'] = np.std(group1) / np.sqrt(n)
-                    df_runs.loc[row, 'max'] = np.max(group1)
+                    df_runs.loc[row, 'max'] = np.max(group1) 
                     df_runs.loc[row, 'min'] = np.min(group1)
                     if scenario == 'Base':
                         row += 1
                         continue
                     # Perform paired t-test
-                    try:
-                        t_statistic, p_value = scipy.stats.ttest_rel(group1, group_base)
-                    except:
-                         group_base = [0]*n
-                         t_statistic, p_value = scipy.stats.ttest_rel(group1, group_base)
+                    if type == 'Diff' or type == 'DiffCost': group_base = [0]*len(group1)
+                    t_statistic, p_value = scipy.stats.ttest_rel(group1, group_base)
+
                     df_runs.loc[row, 't_stat'] = t_statistic
                     df_runs.loc[row, 'p_val'] = p_value
                     row += 1
