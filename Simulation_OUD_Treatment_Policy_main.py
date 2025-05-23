@@ -108,7 +108,7 @@ def simulation_run(stuff):
     #print("main: ",gen_dict["arrival_gen"].triangular(27298.81,34224.21,43260.59))
     initial_done = True
     
-    write_file = open("Results/Test_SimulationsMovement.txt", "w+")
+    write_file = open(Temp_results_folder+"/Test_SimulationsMovement.txt", "w+")
     sys.stdout = write_file
     
     #start process and run
@@ -121,7 +121,7 @@ def simulation_run(stuff):
     ##################################################################### PRINTING / ANALYSIS #####################################################################################
     sys.stdout = original_stdout
     print(" SIMULATION END - ", num_years," Years - ", env.now)
-    write_file = open("Results/Test_SimulationsStats_" + str(n_runs) + "Runs_" + str(s) + "Scenario.txt", "w+")
+    write_file = open(Temp_results_folder+"/Test_SimulationsStats_" + str(n_runs) + "Runs_" + str(s) + "Scenario.txt", "w+")
     sys.stdout = write_file
     print("----------------------- Example individual  ---------------------------")
     #print(Person_Dict[i])
@@ -480,42 +480,42 @@ def simulation_run(stuff):
     Mean_enter_Age[s] = timeCalculations(enter_age_list)
     Mean_Prev_Age[s] = timeCalculations(prev_age_list)
     ##################### Prints individual scenario Histograms ################################
-    os.makedirs('Results/Figures', exist_ok=True)
+    os.makedirs(Temp_results_folder+'/Figures', exist_ok=True)
     if (s % 50) == 0: 
         sys.stdout = original_stdout
         print("---- Creating Figures for Scenario", s,"-----")
         sys.stdout = write_file
-        os.makedirs('Results/Figures/Scenario'+str(s), exist_ok=True)
+        os.makedirs(Temp_results_folder+'/Figures/Scenario'+str(s), exist_ok=True)
         #### Hisograms of Totals ###########
-        print_histogram(enter_age_list,18,s,"Age at Sim","Number of Individuals", "Age_Init")
-        print_histogram(prev_age_list,18,s,"Age of Inidivduals at beginning simualtion", "Number of Individuals", "Age_Prev")
+        print_histogram(enter_age_list,18,s,"Age at Sim","Number of Individuals", "Age_Init",Temp_results_folder)
+        print_histogram(prev_age_list,18,s,"Age of Inidivduals at beginning simualtion", "Number of Individuals", "Age_Prev",Temp_results_folder)
         #''' 
         # can comment out to save time
         #monthly
-        print_histogram(arrivals_list,(int(months)),s,"Time of Arrival (Months)","Number of Arrivals","Arrivals_Month")  #new user arrivals in each month
-        print_histogram(treatments_list,(int(months)),s,"Time of Treatment Start (Months)","Number of Treatment Starts","Treatment_Month") #number of treatment starts in each month
-        print_histogram(Ocrimes_list,(int(months)),s,"Time of Crime (Months)","Number of Crimes","Crimes_Month") # number of crimes in each month
-        print_histogram(hosp_list,(int(months)),s,"Time of Hospital Encounter (Months)","Number of Hospital Encounters","Hospital_Month") #number of Hospital Encounters in each month ####
-        print_histogram(OD_deaths_list,(int(months)),s,"Time of Death (Months)","Number of Deaths","Deaths_Month") #number of deaths in each month ###
+        print_histogram(arrivals_list,(int(months)),s,"Time of Arrival (Months)","Number of Arrivals","Arrivals_Month",Temp_results_folder)  #new user arrivals in each month
+        print_histogram(treatments_list,(int(months)),s,"Time of Treatment Start (Months)","Number of Treatment Starts","Treatment_Month",Temp_results_folder) #number of treatment starts in each month
+        print_histogram(Ocrimes_list,(int(months)),s,"Time of Crime (Months)","Number of Crimes","Crimes_Month",Temp_results_folder) # number of crimes in each month
+        print_histogram(hosp_list,(int(months)),s,"Time of Hospital Encounter (Months)","Number of Hospital Encounters","Hospital_Month",Temp_results_folder) #number of Hospital Encounters in each month ####
+        print_histogram(OD_deaths_list,(int(months)),s,"Time of Death (Months)","Number of Deaths","Deaths_Month",Temp_results_folder) #number of deaths in each month ###
         #'''
         #Yearly
         # print(OD_deaths_list)
-        print_histogram(arrivals_list,(int(num_years)),s,"Time of Arrival (Years)","Number of Arrivals","Arrivals_Year")  #new user arrivals in each month
-        print_histogram(treatments_list,(int(num_years)),s,"Time of Treatment Start (Years)","Number of Treatment Starts","Treatment_Year") #number of treatment starts in each num_year
-        print_histogram(Ocrimes_list,(int(num_years)),s,"Time of Crime (Years)","Number of Crimes","Crimes_Year") # number of crimes in each num_year
-        print_histogram(hosp_list,(int(num_years)),s,"Time of Hospital Encounter (Years)","NUmber of Hospital Encounters","Hospital_Year") #number of Hospital Encounters in each num_year ####
-        print_histogram(OD_deaths_list,(int(num_years)),s,"Time of Death (Years)","Number of Opioid-Related Deaths","OD_Deaths_Year") #number of Opioid deaths in each num_year ###
-        print_histogram(nOD_death_list,(int(num_years)),s,"Time of Death (Years)","Number of nonOpioid-Related Deaths","nonOD_Deaths_Year") #number of non-Opioid Related deaths in each num_year ###
-        print_histogram(relapse_list,(int(num_years)),s,"Time of Relapse (Years)","Number of Individuals","Relapse_Year") #number of non-Opioid Related deaths in each num_year ###
+        print_histogram(arrivals_list,(int(num_years)),s,"Time of Arrival (Years)","Number of Arrivals","Arrivals_Year",Temp_results_folder)  #new user arrivals in each month
+        print_histogram(treatments_list,(int(num_years)),s,"Time of Treatment Start (Years)","Number of Treatment Starts","Treatment_Year",Temp_results_folder) #number of treatment starts in each num_year
+        print_histogram(Ocrimes_list,(int(num_years)),s,"Time of Crime (Years)","Number of Crimes","Crimes_Year",Temp_results_folder) # number of crimes in each num_year
+        print_histogram(hosp_list,(int(num_years)),s,"Time of Hospital Encounter (Years)","NUmber of Hospital Encounters","Hospital_Year",Temp_results_folder) #number of Hospital Encounters in each num_year ####
+        print_histogram(OD_deaths_list,(int(num_years)),s,"Time of Death (Years)","Number of Opioid-Related Deaths","OD_Deaths_Year",Temp_results_folder) #number of Opioid deaths in each num_year ###
+        print_histogram(nOD_death_list,(int(num_years)),s,"Time of Death (Years)","Number of nonOpioid-Related Deaths","nonOD_Deaths_Year",Temp_results_folder) #number of non-Opioid Related deaths in each num_year ###
+        print_histogram(relapse_list,(int(num_years)),s,"Time of Relapse (Years)","Number of Individuals","Relapse_Year",Temp_results_folder) #number of non-Opioid Related deaths in each num_year ###
         #### Hisograms of Utilization per month ###########
-        print_barChart(active_ut,s,"Time","Number of OUD Active Individuals","Ut_Active", num_years,warmup) 
-        print_barChart(inactive_ut,s,"Time","Number of OUD Inactive Individuals","Ut_Inactive", num_years,warmup) 
-        print_barChart(treat_ut,s,"Time","Number of Individuals in Treatment","Ut_Treatment", num_years,warmup) 
-        print_barChart(Ocrime_ut,s,"Time","Number of Individuals in Criminal Justice System for Opioid-related","Ut_OCrimes", num_years,warmup) 
-        print_barChart(Allcrime_ut,s,"Time","Number of Individuals in Criminal Justice System","Ut_AllCrimes", num_years,warmup) 
-        print_barChart(hosp_ut,s,"Time","Number of Individuals in Hospital","Ut_Hospital", num_years,warmup)
-        print_barChart(ODdeath_ut,s,"Time","Number of Deceased Individuals from Opioid-Related Causes","Ut_OD_Deaths", num_years,warmup) 
-        print_barChart(nOD_death_ut,s,"Time","Number of Deceased Individuals from Non-Opioid-Related Causes","Ut_nOD_Deaths", num_years,warmup) 
+        print_barChart(active_ut,s,"Time","Number of OUD Active Individuals","Ut_Active", num_years,warmup,Temp_results_folder) 
+        print_barChart(inactive_ut,s,"Time","Number of OUD Inactive Individuals","Ut_Inactive", num_years,warmup,Temp_results_folder)  
+        print_barChart(treat_ut,s,"Time","Number of Individuals in Treatment","Ut_Treatment", num_years,warmup,Temp_results_folder) 
+        print_barChart(Ocrime_ut,s,"Time","Number of Individuals in Criminal Justice System for Opioid-related","Ut_OCrimes", num_years,warmup,Temp_results_folder)  
+        print_barChart(Allcrime_ut,s,"Time","Number of Individuals in Criminal Justice System","Ut_AllCrimes", num_years,warmup,Temp_results_folder) 
+        print_barChart(hosp_ut,s,"Time","Number of Individuals in Hospital","Ut_Hospital", num_years,warmup,Temp_results_folder) 
+        print_barChart(ODdeath_ut,s,"Time","Number of Deceased Individuals from Opioid-Related Causes","Ut_OD_Deaths", num_years,warmup,Temp_results_folder)  
+        print_barChart(nOD_death_ut,s,"Time","Number of Deceased Individuals from Non-Opioid-Related Causes","Ut_nOD_Deaths", num_years,warmup,Temp_results_folder) 
         
         plt.plot(range(0,int(months)),active_ut,marker=".", color="k")
         plt.plot(range(0,int(months)),Allcrime_ut,marker=".", color="r")
@@ -528,18 +528,18 @@ def simulation_run(stuff):
         plt.title("Number of people in each state at the beginning of the Month")
         plt.ylabel("Number of People")
         plt.tight_layout()
-        plt.savefig('Results/Figures/Scenario'+str(s)+'/Ut_noInactive.png')
+        plt.savefig(Temp_results_folder+'/Figures/Scenario'+str(s)+'/Ut_noInactive.png')
         plt.plot(range(0,int(months)),inactive_ut,marker=".", color="y")
         plt.legend(['Active', "Arrests",'Opioid Deaths',"non-Opioid Deaths", "Treatment", 'Hospital Encounters','In-active'])
-        plt.savefig('Results/Figures/Scenario'+str(s)+'/Ut_all.png')
+        plt.savefig(Temp_results_folder+'/Figures/Scenario'+str(s)+'/Ut_all.png')
         plt.close()
         #### Hisograms of Times ###########
         #''' 
         # can comment out to save time
-        print_histogram(Time_FirstActive_list,(int(months)),s,"Amount of Time in first Active State (Days)","Number of Individuals","Time_FirstActive") #Amount of time spent in active state for first time####
-        print_histogram(Time_inTreat_list,(int(months)),s,"Amount of Time in Treatment State per episode (Days)","Number of Individuals","Time_inTreat")
-        print_histogram(Time_Jail_list,(int(months)),s,"Amount of Time in Jail\Prison State per episode (Days)","Number of Individuals","Time_inJail")
-        print_histogram(Time_Hosp_list,(int(months)),s,"Amount of Time in Hospital State per episode (Days)","Number of Individuals","Time_inHosp")
+        print_histogram(Time_FirstActive_list,(int(months)),s,"Amount of Time in first Active State (Days)","Number of Individuals","Time_FirstActive",Temp_results_folder) #Amount of time spent in active state for first time####
+        print_histogram(Time_inTreat_list,(int(months)),s,"Amount of Time in Treatment State per episode (Days)","Number of Individuals","Time_inTreat",Temp_results_folder) 
+        print_histogram(Time_Jail_list,(int(months)),s,"Amount of Time in Jail\Prison State per episode (Days)","Number of Individuals","Time_inJail",Temp_results_folder) 
+        print_histogram(Time_Hosp_list,(int(months)),s,"Amount of Time in Hospital State per episode (Days)","Number of Individuals","Time_inHosp",Temp_results_folder) 
         #'''
         sys.stdout = original_stdout
         print("---- Finished Figures for Scenario", s,"-- Calculating Yearly Lists -----")
@@ -735,7 +735,8 @@ def simulation_run(stuff):
     # breakpoint()
     
 if __name__ == '__main__':
-    os.makedirs('Results', exist_ok=True)
+    Temp_results_folder = str('Results_job'+sys.argv[3])
+    os.makedirs(Temp_results_folder, exist_ok=True)
     # original_stdout = sys.stdout
     params = sim_params(warmup)
     
@@ -753,7 +754,7 @@ if __name__ == '__main__':
     else:
         CPUs = 8
 
-    debug = True
+    debug = False
     if debug:
         results = []
         for s in range(params["n_runs"]):
@@ -769,7 +770,7 @@ if __name__ == '__main__':
     endtime = ti.time()
     print ('total time elapsed:', endtime - starttime)
     print("...Simulation Finished. Starting Summary Statistics...")
-    print_model_outputs(warmup, seeds, starttime, original_stdout, results, params)
+    print_model_outputs(warmup, seeds, starttime, original_stdout, results, params,Temp_results_folder) 
 
     '''
     #Working code...
