@@ -1,8 +1,8 @@
 # DES-Paper-Data-and-Analysis-2023
 
-This repository is the supportive code and data for the paper:
+This repository is the supporting code and data for the paper:
 
-[1] V. M. White and L. A. Albert. (2023). “Evaluating diversion and treatment policies for opioid use disorder,” Pre-print. Available at: https://arxiv.org/abs/2311.05076 
+[1] V. M. White and L. A. Albert. (2025). Evaluating diversion and treatment policies for opioid use disorder. IISE Transactions in Healthcare Systems Engineering. In press. 
 
 ## The "Data_Sources" folder
 This folder obtains the collected raw data used to estimate the input parameters for the Dane County case study. Note that most of the data was converted from the original .xlsx files to .csv for faster loading into Python. 
