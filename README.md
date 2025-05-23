@@ -24,19 +24,20 @@ This is the Python code for the simulation. When you run the file, you enter the
 - The number of runs you wish to conduct
 - The length in years you want the simulation to run (this does not include the hard-coded 5-year warm-up period)
 - the line number in the "AllScenarioMatrix.csv" that corresponds to the exact scenario you wish to run
-The following is an example of how to call the simulation with two replications for 10 years each with the baseline scenario as described in [1]:
+The following is an example of how to call the simulation with two replications for 10 years each, plus a 5-year hard-coded warm-up period, with the baseline scenario as described in [1]:
 ```
   <cwd> 'Simulation_OUD_Treatment_Policy_main.py' '2' '10' '0'
 ```
   
 ## The "Post_Processing" folder
-This folder contains various Python files used to process the outputs of "Simulation_DC_OpioidPolicing_MARI_ED_and_CM.py" to the formats presented in [1] Specifically: 
-- The **"Compile_RawResults.py"** file is Python Code that converts the raw output of the "Simulation_DC_OpioidPolicing_MARI_ED_and_CM.py" to .csv files.
+This folder contains various Python files used to process the outputs of "Simulation_DC_OpioidPolicing_MARI_ED_and_CM.py" to the formats presented in [1]. Specifically: 
+- The **"Compile_RawResults.py"** file is Python Code that converts the raw output of the "Simulation_DC_OpioidPolicing_MARI_ED_and_CM.py" main outputs to .csv files.
+- - The **"Compile_ServiceTimes.py"** file is Python Code that converts the raw output of the "Simulation_DC_OpioidPolicing_MARI_ED_and_CM.py" service times to .csv files.
 - The **"Prediction_interval_Calibration_Figs.py"** file is Python code used to create the .png files used in Figure 2 for [1]
-- The "Results_Table.py" file is the Python code to create Table 4 for [1] and outputs the latex table as "CombinedResults.txt"
+- The "Results_Table.py" file is the Python code to create Table 4 for [1] and outputs the LaTeX table as "CombinedResults.txt"
 - The **"Scenario_Comparison.py"** file to create graphs in .png and tables in .txt format used in Table 5, Figure 3, and Appendix C for [1]
 - The **"Graphing_Functions.py"** file is supportive Python code called by "Scenario_Comparison.py" and contains matplotlib formatted graphs.
-- The **"Table_Functions.py"** file is supportive Python code called by "Scenario_Comparison.py" and contains the code to reformat data frames to latex.
+- The **"Table_Functions.py"** file is supportive Python code called by "Scenario_Comparison.py" and contains the code to reformat data frames to LaTeX.
 
 ## The "Appendix_Items" folder
 This folder contains various Python files used to conduct supplemental analysis reported in the Appendices in [1]. Specifically: 
@@ -50,5 +51,5 @@ This folder contains various Python files used to conduct supplemental analysis 
 - The "Combine_Sens_Outputs.py" file compiles the raw sensitivity analysis outputs from "Sensitivity_Analysis/Simulation_OUD_Treatment_Policy_Sensitivity.py" to .csv files.
 - The "ReadTotalYearlyEvents.py" file compiles the raw base model outputs from "Simulation_DC_OpioidPolicing_MARI_ED_and_CM.py" to .csv files.
 - The "RegressionAnalysis.py" file conducts the normality, scatterplots, PRCC, and OLS analyses for Appendix C in [1].
-- The "Sens_Tables.py" file is a supportive Python code called "Sensitivity_Analysis/RegressionAnalysis.py" and contains the code to reformat data frames to latex for tables A2 and A3.
+- The "Sens_Tables.py" file is a supportive Python code called "Sensitivity_Analysis/RegressionAnalysis.py" and contains the code to reformat data frames to LaTeX for tables A2 and A3.
 
