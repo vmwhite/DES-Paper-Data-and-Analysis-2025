@@ -1,4 +1,4 @@
-# DES-Paper-Data-and-Analysis-2025
+# DES-Paper-Data-and-Analysis-2025 [![DOI](https://zenodo.org/badge/684802343.svg)](https://doi.org/10.5281/zenodo.15498919)
 
 This repository is the supporting code and data for the paper:
 
